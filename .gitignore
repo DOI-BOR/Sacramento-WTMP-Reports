@@ -1,0 +1,16 @@
+*.xml
+!defaultLineStyles.xml
+!Graphics_Defaults.xml
+!Graphics_Defaults_contour.xml
+!Format/*.xml
+!Datasources/USBRAutomatedReportDataAdapter.xml
+**/*.bak
+**/*.bak.*
+**/*.log
+*.jasper
+Images/**
+CSVData/**
+Datasources/USBRAutomatedReportOutput.xml
+jasperC/**
+jasperC/
+jasperC/*.jasper

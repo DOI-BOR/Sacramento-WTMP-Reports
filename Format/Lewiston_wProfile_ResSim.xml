@@ -1,0 +1,1378 @@
+<Chapters>
+	<Chapter>
+		<Name>Lewiston Reservoir</Name>
+		<Region>Lewiston</Region>
+		<resolution>high</resolution>
+		<Sections>
+			<Section>
+				<Header>Lewiston Reservoir Temperatures</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).
+</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Lewiston Reservoir near dam temperature profiles, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_LEW_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<Parameter>Temperature</Parameter>
+					<profilesperrow>4</profilesperrow>
+					<DatesSource>Observed_Inflow</DatesSource>
+					<Lines>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>8</zorder>
+						</Line>
+						<Line>
+							<label>Observed Clear Cr Inflow</label>
+							<Flag>Observed_Inflow</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>darkgrey</lineColor>
+							<lineWidth>1</lineWidth>
+							<units>f</units>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\lewiston_clear_creek_intake_profiles.txt</FileName>
+							<units>f</units>
+							<wse>
+								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Hatchery</label>
+							<Flag>Observed_Hatchery</Flag>
+							<units>f</units>
+							<Parameter>Temperature</Parameter>
+							<lineColor>darkgrey</lineColor>
+							<lineWidth>1</lineWidth>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\lewiston_hatchery_intake_profiles.txt</FileName>
+							<units>f</units>
+							<wse>
+								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Log Boom</label>
+							<Flag>Observed_logboom</Flag>
+							<units>f</units>
+							<Parameter>Temperature</Parameter>
+							<lineColor>darkgrey</lineColor>
+							<lineWidth>1</lineWidth>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\lewiston_log_boom_profiles.txt</FileName>
+							<units>f</units>
+							<wse>
+								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Upper Curtain</label>
+							<Flag>Observed_curtain</Flag>
+							<units>f</units>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<units>f</units>
+							<wse>
+								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							</wse>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>waterlevel</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							<scalar>1</scalar>
+							<linecolor>darkred</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+				</Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir near dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<DataPaths>
+						<DataPath>
+							<label>Computed</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>							
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+								<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							</wse>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>					
+							<units>f</units>
+						</DataPath>
+					</DataPaths>								
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir near dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<wse>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+								<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							</wse>
+							<units>f</units>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir near dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<wse>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+								<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							</wse>
+							<units>f</units>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir near dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<wse>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+								<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							</wse>
+							<units>f</units>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir near dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Lewiston Reservoir</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<wse>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+								<DSS_Path>//LEWISTON RESERVOIR-POOL/ELEV//1HOUR/%%Fpart%%/</DSS_Path>
+							</wse>
+							<units>f</units>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+
+			<Section>
+				<Header>Clear Creek Tunnel Inflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Clear Creek Tunnel hourly inflow temperature, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_LEW_TW.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<Type>INST-VAL</Type>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed Daily</Flag>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<Type>INST-VAL</Type>
+							<Interval>1DAY</Interval>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>
+						<line>					
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>							
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>7</zorder>
+							<alpha>0.4</alpha>
+							<omitvalue>0.0</omitvalue>
+						</line>
+						<line>
+							<label>Simulated Daily</label>
+							<Flag>Computed Daily</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+							<omitvalue>0.0</omitvalue>
+						</line>
+					</Lines>
+				</Object>
+
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Clear Creek Tunnel hourly inflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>					
+					<Parameter>Temperature</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Clear Creek Tunnel hourly inflow temperature, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object> 
+				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly inflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>				
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Clear Creek Tunnel hourly inflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly inflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly inflow temperature, monthly average NSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTON RESERVOIR-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/LEWISTON_CLEAR_CREEK_INTAKE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+			</Section>
+
+			<Section>
+				<Header>Clear Creek Tunnel Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Clear Creek Tunnel hourly outflow temperature, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_LEW_TW.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed Daily</Flag>
+							<Interval>1DAY</Interval>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>
+						<line>					
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>							
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>7</zorder>
+							<alpha>0.4</alpha>
+							<omitvalue>0.0</omitvalue>
+						</line>
+						<line>
+							<label>Simulated Daily</label>
+							<Flag>Computed Daily</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+							<omitvalue>0.0</omitvalue>
+						</line>
+					</Lines>
+				</Object>
+
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Clear Creek Tunnel hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>					
+					<Parameter>Temperature</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Clear Creek Tunnel hourly outflow temperature, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object> 
+				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>				
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Clear Creek Tunnel hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Clear Creek Tunnel hourly outflow temperature, monthly average NSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>						
+				</Object>
+			</Section>
+
+
+			<Section>
+				<Header>Lewiston Reservoir Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Lewiston Reservoir hourly outflow, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_LEW_Q.xml</Template>	
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<Lines>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<alpha>0.4</alpha>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<linestylepattern>dashed</linestylepattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<alpha>0.4</alpha>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). ResSim.</Description>									
+					<Parameter>flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_Q.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Lewiston Reservoir hourly outflow, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Parameter>Flow</Parameter>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). ResSim.</Description>					
+					<Parameter>flow</Parameter>
+					<statistic>meanbias</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). CE-QUAL-W2.</Description>					
+					<Parameter>flow</Parameter>
+					<statistic>MAE</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). ResSim.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>RMSE</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>NSE</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Lewiston DAM/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-LEWISTON RES./LEW-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>	
+			</Section>
+			
+			<Section>
+				<Header>Lewiston Reservoir Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Template>format/templates/Plot_Defaults_LEW_EL.xml</Template>
+					<Description>Lewiston Reservoir hourly elevation, %%year%%. ResSim.</Description>					
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<splitbyyear>False</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<unitsystem>english</unitsystem>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>WSComp</flag>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<omitvalue>-901.0</omitvalue>
+								</line>
+								<line>
+									<label>Simulated</label>
+									<flag>WSComp</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+									<lineStylePattern>dashed</lineStylePattern>
+								</line>
+							</lines>
+						</ax>
+					</axs>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Lewiston Reservoir hourly elevation, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 0.50 %%units%%, MAE: %%gt%%1.00 %%units%%, RMSE: %%gt%%1.50 %%units%%, NSE: %%lt%%0.65). ResSim.</Description>					
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Elev.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>elevation</Parameter>
+					<SplitByYear>True</SplitByYear>					
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_EL.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Lewiston Reservoir hourly elevation, monthly means (%%units%%) and counts. ResSim.</Description>				
+					<Parameter>elevation</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Lewiston Reservoir hourly elevation, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 0.50 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MeanBias.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<statistic>meanbias</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Lewiston Reservoir hourly elevation, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.00 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<unitsystem>english</unitsystem>
+					<statistic>MAE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Lewiston Reservoir hourly elevation, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.50 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<unitsystem>english</unitsystem>
+					<statistic>RMSE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Lewiston Reservoir hourly elevation, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<unitsystem>english</unitsystem>
+					<statistic>NSE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Lewiston Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR_CLEANED_FULLLINEARINTERP/LEW_ELEVATION_PROCESSED/ELEV//1HOUR/GRAB2/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>
