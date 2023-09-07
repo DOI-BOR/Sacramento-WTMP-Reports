@@ -1,0 +1,371 @@
+<Chapters>
+	<Chapter>
+		<Name>Shasta</Name>
+		<Region>Shasta</Region>
+		<Sections>
+			<Section>
+				<Header>Shasta Lake Temperatures Near Dam</Header>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<Description>Shasta Lake w tribs %%year%%</Description>
+					<SplitByYear>True</SplitByYear>
+					<Parameter>Temperature</Parameter>
+					<XLims>
+                        <min>0</min>
+                        <max>30</max>
+                    </XLims>
+					<Lines>
+						<Line>
+							<label>Computed</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>77</W2_Segment>
+							<lineColor>Orange</lineColor>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>Blue</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%/Profile Shasta Lake w tribs temperature.txt</FileName>
+						</Line>
+					</Lines>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Shasta Lake Outflow Temperature</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Shasta Temperature Outflow</Description>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<Lines>
+						<Line>
+							<label>Modeled</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<Parameter>Temperature</Parameter>
+							<W2_File>TWO_77.OPT</W2_File>
+							<lineColor>Orange</lineColor>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>7</zorder>
+						</Line>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/SHASTA DAM-CORR/FLOW_WT/TEMP_G2//1DAY/TEMPERATURE (F)/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+							<lineColor>Blue</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Shasta Temperature Outflow Error Statistics</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/SHASTA DAM-CORR/FLOW_WT/TEMP_G2//1DAY/TEMPERATURE (F)/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Temperature Outflow Mean Monthly Statistics</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>False</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/SHASTA DAM-CORR/FLOW_WT/TEMP_G2//1DAY/TEMPERATURE (F)/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Shasta Lake Outflow</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Shasta Outflow</Description>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<Lines>
+						<Line>
+							<label>Modeled</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<units>cms</units>
+							<skiprows>3</skiprows>
+							<W2_File>QWO_77.OPT</W2_File>
+							<lineColor>Orange</lineColor>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/SACRAMENTO/SHASTA/FLOW-OUT//1DAY/OBSERVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+							<lineColor>Blue</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Shasta Outflow Error Statistics</Description>
+					<Parameter>Flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>flow</Parameter>
+							<units>cms</units>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<W2_File>QWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/SACRAMENTO/SHASTA/FLOW-OUT//1DAY/OBSERVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Outflow Mean Monthly Statistics</Description>
+					<Parameter>Flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<Interval>1DAY</Interval>
+							<units>cms</units>
+							<skiprows>3</skiprows>
+							<W2_File>QWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/SACRAMENTO/SHASTA/FLOW-OUT//1DAY/OBSERVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/Historic-UpperSac.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<!-- Buzzplot section commented out nearly to end of file
+			<Section>
+				<Header>Shasta Buzzplot Test</Header>
+				<Object>
+					<Type>BuzzPlot</Type>
+					<Title>Buzz plot test alpha</Title>
+					<Description>BuzzPlot</Description>
+					<YLabel>Daily Average Temperature @ Shasta, Def F</YLabel>
+					<YLabel2>Release (cfs) - Volume (AF/100)</YLabel2>
+					<XLabel>Julian Day</XLabel>
+					<dateformat2>datetime</dateformat2>
+					<dateformat>jdate</dateformat>
+					<YLims>
+						<min>42</min>
+						<max>82</max>
+					</YLims>
+					<YLims2>
+						<min>-100</min>
+						<max>4500</max>
+					</YLims2>
+                    <xlims>
+                        <min>180</min>
+                    </xlims>
+					<Lines>
+						<Line>
+							<Flag>Leakage</Flag>
+							<lineColor>darkblue</lineColor>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<label>Leakage</label>
+							<zorder>4</zorder>
+							<omitvalue>0</omitvalue>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>-1</structureNumber>
+							</structureNumbers>
+							<parameter>flow</parameter>
+							<skiprows>2</skiprows>
+							<units>m3/s</units>
+						</Line>
+						<Line>
+							<Flag>TEST STRUCT 5</Flag>
+							<lineColor>cyan</lineColor>
+							<label>TEST STRUCT 5</label>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<zorder>4</zorder>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>5</structureNumber>
+							</structureNumbers>
+							<parameter>flow</parameter>
+							<units>m3/s</units>
+							<skiprows>2</skiprows>
+							<Target>287.12</Target>
+						</Line>
+						<Line>
+							<Flag>TEST STRUCT 6</Flag>
+							<lineColor>orange</lineColor>
+							<label>TEST STRUCT 6</label>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<zorder>4</zorder>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>6</structureNumber>
+							</structureNumbers>
+							<parameter>flow</parameter>
+							<skiprows>2</skiprows>
+							<units>m3/s</units>
+							<Target>280.72</Target>
+						</Line>
+						<Line>
+							<Flag>TEST STRUCT 7</Flag>
+							<lineColor>lightblue</lineColor>
+							<label>TEST STRUCT 7</label>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<zorder>4</zorder>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>7</structureNumber>
+							</structureNumbers>
+							<units>m3/s</units>
+							<skiprows>2</skiprows>
+							<parameter>flow</parameter>
+							<Target>274.32</Target>
+						</Line>
+						<Line>
+							<Flag>TEST STRUCTURE 20</Flag>
+							<lineColor>blue</lineColor>
+							<label>TEST STRUCTURE 20</label>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<zorder>4</zorder>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>20</structureNumber>
+							</structureNumbers>
+							<parameter>flow</parameter>
+							<units>m3/s</units>
+							<skiprows>2</skiprows>
+							<Target>245.56</Target>
+						</Line>
+						<Line>
+							<Flag>TEST STRUCTURE 21</Flag>
+							<lineColor>green</lineColor>
+							<label>TEST STRUCTURE 21</label>
+							<lineType>stacked</lineType>
+							<XAxis>right</XAxis>
+							<zorder>4</zorder>
+							<w2_file>str_br1.opt</w2_file>
+							<structureNumbers>
+								<structureNumber>21</structureNumber>
+							</structureNumbers>
+							<units>m3/s</units>
+							<parameter>flow</parameter>
+							<skiprows>2</skiprows>
+							<Target>237.74</Target>
+						</Line>
+						<Line>
+							<Flag>ColdWaterPool</Flag>
+							<lineColor>coral</lineColor>
+							<label>Cold Water Pool (AF/100) 58 Deg F</label>
+							<XAxis>right</XAxis>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+							<w2_file>Volume_wb1.opt</w2_file>
+							<Column>2</Column>
+							<units>m3</units>
+							<parameter>storage</parameter>
+							<skiprows>1</skiprows>
+							<scalar>0.01</scalar>
+						</Line>
+						<Line>
+							<Flag>TotalStorage</Flag>
+							<lineColor>darkgreen</lineColor>
+							<label>Total Storage (AF/100)</label>
+							<XAxis>right</XAxis>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+							<w2_file>Volume_wb1.opt</w2_file>
+							<Column>1</Column>
+							<units>m3</units>
+							<parameter>storage</parameter>
+							<skiprows>1</skiprows>
+							<scalar>0.01</scalar>
+						</Line>
+						<Line>
+							<label>Shasta Outflow Temp</label>
+							<Flag>ShastaOutflowTemp</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<linestylepattern>dashed</linestylepattern>
+							<Parameter>Temperature</Parameter>
+							<W2_File>TWO_77.OPT</W2_File>
+							<units>C</units>
+							<pointFillColor>darkgreen</pointFillColor>
+							<pointLineColor>darkgreen</pointLineColor>
+							<symbolType>6</symbolType>
+							<symbolSize>5</symbolSize>
+							<numptsskip>10</numptsskip>
+						</Line>
+					</Lines>
+				</Object>
+			</Section>
+			-->
+		</Sections>
+	</Chapter>
+</Chapters>

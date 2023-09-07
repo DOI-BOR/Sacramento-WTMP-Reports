@@ -1,0 +1,2554 @@
+<!--Assume that ReportGenerator uses DSS info to determine units, so no units need to be explicitly stated-->
+<!--All W2 simulation results are assumed to be in SI units-->
+<!--Units should be specified for text file input files-->
+<Chapters>
+	<Chapter>
+		<Name>Whiskeytown Lake</Name>
+		<Region>Whiskeytown Lake</Region>
+		<debug>false</debug>		
+		<Sections>
+			<Section>
+				<Header>Whiskeytown Lake 1,000 ft Upstream of the Dam Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<DatesSource>Observed_S1</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed_S1</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>	
+							<units>C</units>						<!--Text file input, so specify units-->
+						    <wse>
+								<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+								<parameter>elevation</parameter>										
+								<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<W2_Segment>107</W2_Segment>
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>							
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							<linecolor>darkblue</linecolor>
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 107</column>							
+							<lineColors>
+								<linecolor>darkred</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+				</Object>
+		        <Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--					<resolution>60</resolution> -->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>107</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>					
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>				
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>107</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>107</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>107</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 1,000 ft upstream of the dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>107</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			<Section>
+				<Header>Whiskeytown Lake 2 mi Upstream of the Dam Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<DatesSource>Observed_S2</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed_S2</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>C</units>
+						    <wse>
+								<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>							
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							<linecolor>darkblue</linecolor>
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 72</column>							
+							<lineColors>
+								<linecolor>darkred</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+                </Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--					<resolution>60</resolution>  -->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake 2 mi upstream of the dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>72</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Whiskeytown Lake Upstream of Spring Creek Tunnel Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<DatesSource>Observed_S3</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed_S3</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>C</units>
+						    <wse>
+								<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>
+<!--							<omitvalue>-99</omitvalue>  -->
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							<linecolor>darkblue</linecolor>
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 72</column>
+							<units>m</units>
+							<lineColors>
+								<linecolor>darkred</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+                </Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--					<resolution>60</resolution>  -->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, monthly average mean bias (%%units%%) - Upstream of Spring Creek Tunnel, shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Spring Creek Tunnel temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>	
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>78</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Whiskeytown Lake Upstream of Oak Bottom Curtain Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<DatesSource>Observed_S4</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed_S4</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->	
+						    <wse>
+								<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							</wse>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>
+<!--							<omitvalue>-99</omitvalue> -->
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							<linecolor>darkblue</linecolor>
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 50</column>
+							<units>m</units>
+							<lineColors>
+								<linecolor>darkred</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+                </Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--					<resolution>60</resolution>  -->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+						</DataPath>
+					</DataPaths>
+				</Object>		
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>		
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>		
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake upstream of Oak Bottom Curtain temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>	
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>50</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Upstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Whiskeytown Lake Downstream of Oak Bottom Curtain Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).</Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<DatesSource>Observed_S5</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed_S5</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+						    <wse>
+								<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+								<parameter>elevation</parameter>
+								<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							</wse>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+<!--							<omitvalue>-99</omitvalue>  -->
+							<omitvalue>-146.2</omitvalue>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV/*/1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+							<linecolor>darkblue</linecolor>
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 51</column>
+							<units>m</units>
+							<lineColors>
+								<linecolor>darkred</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+                </Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--					<resolution>60</resolution>  -->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+						</DataPath>
+					</DataPaths>
+				</Object>	
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake downstream of Oak Bottom Curtain temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>	
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>51</W2_Segment>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\Oak Bottom Curtain - Downstream_formatted_SpecDates.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+								<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+<!--This uses the unheated temperature at the top of the tunnel; need to add heating for comparison to the measured location-->			
+			<Section>
+				<Header>Spring Creek Tunnel Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Spring Creek Tunnel hourly outflow temperature, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>					
+					<xlabel>Date</xlabel>					
+					<lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.3</alpha>
+							<omitvalue>-901.0</omitvalue>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>											
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>							
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>7</zorder>
+							<alpha>0.4</alpha>
+							<omitvalue>0.0</omitvalue>
+						</line>
+						<line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>							
+							<linecolor>red</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+							<omitvalue>0.0</omitvalue>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Spring Creek Tunnel hourly outflow temperature, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>	
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>							
+					<Parameter>Temperature</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>Temperature</parameter>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<omitvalue>-901.0</omitvalue>
+						</Datapath>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow temperature, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>nse</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/W2:TWO_79.CSV/SEG 79 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+
+			<Section>
+				<Header>Spring Creek Tunnel Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Spring Creek Tunnel hourly outflow, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_SC_Q.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+					<unitsystem>english</unitsystem>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<alpha>0.4</alpha>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Spring Creek Tunnel hourly outflow, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>	
+					<Template>format/templates/MonthlyStatisticsTable_Q.xml</Template>							
+					<Parameter>Temperature</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>					
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Type>PER-AVER</Type>
+							<Interval>1HOUR</Interval>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</Datapath>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Type>PER-AVER</Type>
+							<Interval>1HOUR</Interval>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Spring Creek Tunnel hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>nse</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_79.CSV/SEG 79 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
+							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+
+			<Section>
+				<Header>Whiskeytown Lake Dam Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_WHI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>6</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>	
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>							
+					<Parameter>Temperature</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>					
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</Datapath>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake Dam hourly outflow temperature, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:TWO_109.CSV/SEG 109 WITHDRAWAL/TEMP-TWO//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			
+			<Section>
+				<Header>Whiskeytown Lake Dam Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Template>format/templates/Plot_Defaults_WHI_WD_Q.xml</Template>
+					<Description>Whiskeytown Lake dam hourly outflow, %%year%%. CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+					<unitsystem>english</unitsystem>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<alpha>0.4</alpha>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake dam hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>				
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Whiskeytown Lake dam hourly outflow, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>	
+					<Template>format/templates/MonthlyStatisticsTable_Q.xml</Template>							
+					<Parameter>Temperature</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>					
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Type>PER-AVER</Type>
+							<Interval>1HOUR</Interval>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</Datapath>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>	
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake dam hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>			
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Type>PER-AVER</Type>
+							<Interval>1HOUR</Interval>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake dam hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>			
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake dam hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>			
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Whiskeytown Lake dam hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Flow</Parameter>
+					<statistic>nse</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>			
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/W2:QWO_109.CSV/SEG 109 WITHDRAWAL/FLOW-QWD//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI_OUTLET_PLUS_SPILL/FLOW//1HOUR/GRAB2-INTERPFILL/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			<Section>
+				<Header>Whiskeytown Lake Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Template>format/templates/Plot_Defaults_WHI_EL.xml</Template>
+					<Description>Whiskeytown Lake hourly elevation, %%year%%. CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<splitbyyear>False</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<unitsystem>english</unitsystem>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>WSComp</flag>
+									<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<omitvalue>-901.0</omitvalue>
+								</line>
+								<line>
+									<label>Simulated</label>
+									<flag>WSComp</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/W2:TSR_3_SEG108.CSV/TSR SEG 108 DEPTH 0.00/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+									<lineStylePattern>dashed</lineStylePattern>
+								</line>
+							</lines>
+						</ax>
+					</axs>
+				</Object>							
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Elev.xml</Template>
+					<Description>Whiskeytown Lake hourly elevation, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 0.50 %%units%%, MAE: %%gt%%1.00 %%units%%, RMSE: %%gt%%1.50 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Elevation</Parameter>
+					<SplitByYear>True</SplitByYear>					
+					<includeallyears>True</includeallyears>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>							
+							<column>SEG 108</column>
+						</Datapath>						
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>							
+							<parameter>elevation</parameter>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Whiskeytown Lake hourly elevation, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>		
+					<Template>format/templates/MonthlyStatisticsTable_EL.xml</Template>					
+					<Parameter>Elevation</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+						</Datapath>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>							
+							<column>SEG 108</column>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MeanBias.xml</Template>	
+					<Description>Whiskeytown Lake hourly elevation, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 0.50 %%units%%). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>	
+							<units>m</units>							
+							<skiprows>1</skiprows>
+							<column>SEG 108</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Whiskeytown Lake hourly elevation, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.00 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>MAE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>							
+							<column>SEG 108</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Whiskeytown Lake hourly elevation, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.50 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>RMSE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>
+							<column>SEG 108</column>							
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Whiskeytown Lake hourly elevation, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>NSE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.csv</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>
+							<column>SEG 108</column>							
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR+23HRSHIFT/WHI_ELEVATION/ELEV//1HOUR/GRAB2-MANUAL-FILTER-INTERPFILL/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>					
+			</Section>
+		</Sections>
+	</Chapter>
+	<!--
+		Entire Clear Creek Chapter omitted
+		Copy from ResSim XML if we need it
+	-->
+</Chapters>

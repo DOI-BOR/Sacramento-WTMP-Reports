@@ -1,0 +1,567 @@
+<Chapters>
+	<Chapter>
+		<Name>Whiskeytown</Name>
+		<Region>Whiskeytown</Region>
+		<Sections>
+			<Section>
+				<Header>Whiskeytown Reservoir Temperatures Near Dam</Header>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Whiskeytown %%year%%</Description>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<Parameter>Temperature</Parameter>
+					<profilesperrow>4</profilesperrow>
+					<DatesSource>Observed_S1</DatesSource>
+					<XLims>
+						<min>0</min>
+						<max>30</max>
+					</XLims>
+					<ylims>
+						<max>1250</max>
+						<min>950</min>
+					</ylims>
+					<xticks>
+						<spacing>5</spacing>
+					</xticks>
+					<Lines>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Whiskeytown Lake</ResSimResName>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed Site 1</label>
+							<Flag>Observed_S1</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\whiskeytown_1Prof.txt</FileName>
+						</Line>
+						<Line>
+							<label>Observed Site 2</label>
+							<Flag>Observed_S2</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>Green</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\whiskeytown_2Prof.txt</FileName>
+						</Line>
+						<Line>
+							<label>Observed Site 3</label>
+							<Flag>Observed_S3</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>Fuchsia</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\whiskeytown_3Prof.txt</FileName>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<flag>waterlevel</flag>
+							<parameter>elevation</parameter>
+							<interval>1HOUR</interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Whiskeytown Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<scalar>1</scalar>
+							<linecolor>black</linecolor>
+						</hline>
+					</hlines>
+				</Object>
+			</Section>
+
+			<Section>
+				<Header>Spring Creek Tunnel Outflow Temperature</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Spring Creek Tunnel Outflow Temperature %%year%%</Description>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yticks>
+						<spacing>2</spacing>
+					</yticks>
+					<xlabel>Date</xlabel>
+					<lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.3</alpha>
+							<omitvalue>-901.0</omitvalue>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//WHISKEYTOWN LAKE-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>7</zorder>
+							<alpha>0.4</alpha>
+							<omitvalue>0.0</omitvalue>
+						</line>
+						<line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//WHISKEYTOWN LAKE-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+							<omitvalue>0.0</omitvalue>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Spring Creek Tunnel Outflow Mean Monthly Statistics</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//WHISKEYTOWN LAKE-TUNNEL/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0.0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/USBR_inputs.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Whiskeytown Reservoir Outflow Temperature</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Whiskeytown Temperature Outflow</Description>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<ylims>
+						<min>4</min>
+						<max>16</max>
+					</ylims>
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>6</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>%%SimulationName%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Whiskeytown Temperature Outflow Mean Monthly Statistics</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Whiskeytown Reservoir Outflow</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Whiskeytown Outflow</Description>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<Lines>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//Whiskeytown Dam/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<alpha>0.4</alpha>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>%%SimulationName%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//Whiskeytown Dam/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/WHI_TOTAL_DAM_RELEASE/FLOW//1HOUR/GRAB2-SUM-OF-CLEANED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Whiskeytown Outflow Mean Monthly Statistics</Description>
+					<Parameter>Flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Whiskeytown Dam/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/WHI_TOTAL_DAM_RELEASE/FLOW//1HOUR/GRAB2-SUM-OF-CLEANED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/LewistonWhiskeytown_BalanceFlows.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Clear Creek at South Fork Temperature</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Clear Creek at South Fork Temperature</Description>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<ylims>
+						<min>6</min>
+						<max>18</max>
+					</ylims>
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/2002ON.plus.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/2002ON.plus.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>6</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>%%SimulationName%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+
+					</Lines>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Clear Creek at South Fork Mean Monthly Temperature Statistics</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/2002ON.plus.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Clear Creek at South Fork Flow</Header>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Clear Creek at South Fork Flow</Description>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<Lines>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<alpha>0.4</alpha>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>%%SimulationName%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dash</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Clear Creek at South Fork Flow Mean Monthly Statistics</Description>
+					<Parameter>Flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>flow</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//CLEAR CR + SOUTH FORK/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/IGO_balance.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

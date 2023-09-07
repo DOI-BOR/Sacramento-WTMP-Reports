@@ -1,0 +1,27 @@
+<!--Acronym listof the Upper Sacramento W2 calibration model reports-->
+<Chapters>
+	<Chapter>
+		<Name>Acronyms</Name>		
+		<debug>false</debug>
+		<Sections>
+			<Section>				
+				<Object>
+					<type>textbox</type>
+					<text>cfs = cubic feet per second
+ft = feet
+MAE = Mean Average Error
+mi = mile/miles
+NSE = Nash-Sutcliffe Efficiency
+Obs. = Observed
+Observed Daily = Daily Average of the Observed Sub-Daily Data (e.g., 15-minute or hourly data)
+RMSE = Root Mean Square Error
+Sim. = Simulated
+Simulated Daily = Daily Average of the Simulated Sub-Daily Data (e.g., hourly data)
+TCD = Temperature Control Device
+TW = Water Temperature
+WSE = Water Surface Elevation</text>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

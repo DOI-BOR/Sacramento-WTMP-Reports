@@ -1,0 +1,1783 @@
+<!--Assume that ReportGenerator uses DSS info to determine units, so no units need to be explicitly stated-->
+<!--All W2 simulation results are assumed to be in SI units-->
+<!--Units should be specified for text file input files-->
+<Chapters>
+	<Chapter>
+		<Name>Shasta Lake</Name>
+		<Region>Shasta Lake</Region>
+		<debug>false</debug>
+		<Sections>
+			<Section>
+				<Header>Shasta Lake Near Dam Temperature Profiles</Header>
+				<Object>
+					<type>textbox</type>
+					<text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake, i.e., stratification. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in additional graphs.
+
+Each profile includes the date,  observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation). 
+
+In addition, the active Shasta Dam Temperature Control Device gate levels are shown on the graph, with the Upper (red), Middle (green), and Lower (purple) gate levels shown as shaded bands (depicting their approximate vertical extent of the gates), and the side gate intake elevation is shown as a single orange line.  Active individual gates at each gate level are denoted by black dots.  A vertical line (dashed orange) indicates the observed water temperature below the dam. Finally, at the bottom of each profile are two numbers in a red font. The first red number (left) indicates the number of days that the TCD gate levels (denoted by colored bands) have been active at the time of the profile was measured.  The second red number (right) indicates the number of days that the individual TCD gates (denoted by black dots) have been active at the time of the profile was measured.</text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Shasta Lake near dam temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<usedepth>False</usedepth>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<bottomtext>
+						<text>gateconfiguration</text>
+						<text>gateblend</text>
+					</bottomtext>
+					<bottomtextfontsize>9</bottomtextfontsize>					
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>obswaterlevel</flag>							
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>	
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>		
+							<zorder>5</zorder>
+							<linecolor>darkblue</linecolor>
+							<lineStylePattern>solid</lineStylePattern>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>simwaterlevel</flag>							
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<units>m</units>						<!--Text file input, so specify units-->
+							<skiprows>1</skiprows>						
+							<column>SEG 77</column>
+							<zorder>6</zorder>
+							<scalar>1</scalar>
+							<lineStylePattern>dashed</lineStylePattern>
+							<linecolor>darkred</linecolor>
+							<omitvalue>-146.2</omitvalue>
+						</hline>
+					</hlines>
+					<vlines>
+						<vLine>
+							<label>TW Below Dam</label>
+							<Flag>twbelowdam</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<W2_File>TWO_77.OPT</W2_File>			<!--Text file input, so specify units-->
+							<units>c</units>
+							<linecolor>orange</linecolor>
+							<omitvalue>-146.2</omitvalue>
+							<linestylepattern>dashed</linestylepattern>
+						</vLine>
+					</vlines>
+					<Lines>
+						<Line>							
+							<Flag>Observed</Flag>
+							<label>Observed</label>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>								
+							</wse>
+							<zorder>3</zorder>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>	
+							<units>c</units>						<!--Text file input, so specify units-->
+						</Line>
+						<Line>							
+							<label>Simulated</label>
+							<Flag>Computed</Flag>							
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<units>c</units>
+							<lineColor>Red</lineColor>
+							<omitvalue>-146.2</omitvalue>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<omitvalue>-146.2</omitvalue>
+							<zorder>4</zorder>
+						</Line>
+					</Lines>
+					<showgates>True</showgates>
+					<gateops>
+						<gateop>
+							<flag>TCDU</flag>
+							<label>TCDU</label>
+							<color>#dfa7a6</color>
+							<parameter>elevation</parameter>
+							<top>1048</top>
+							<bottom>1000</bottom>
+							<gates>
+								<gate>
+									<DSS_Path>/USBR/TCD_U1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_U2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Path>/USBR/TCD_U3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_U4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_U5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDM</flag>
+							<label>TCDM gates</label>
+							<color>#cdddac</color>
+							<parameter>elevation</parameter>
+							<top>948</top>
+							<bottom>900</bottom>
+							<gates>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_M1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_M2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_M3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_M4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_M5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDL</flag>
+							<label>TCDL gates</label>
+							<color>#bfb1d0</color>
+							<parameter>elevation</parameter>
+							<top>848</top>
+							<bottom>800</bottom>
+							<gates>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_L1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_L2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_L3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_L4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_L5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDS</flag>
+							<label>TCDS gates</label>
+							<color>#f1b584</color>
+							<parameter>elevation</parameter>
+							<middle>720</middle>
+							<!-- <top>890</top>
+							<bottom>750</bottom> -->
+							<gates>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_S1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+								<gate>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/TCD_S2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+								</gate>
+							</gates>
+						</gateop>
+					</gateops>
+				</Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DatesSource>Observed</DatesSource>
+					<InterpolationSource>Observed</InterpolationSource>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<units>c</units>
+							<snapto0depth>True</snapto0depth>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>	
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							</wse>							
+						</DataPath>
+					</DataPaths>								
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DatesSource>Observed</DatesSource>
+					<InterpolationSource>Observed</InterpolationSource>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<omitvalue>-146.2</omitvalue>
+							<snapto0depth>True</snapto0depth>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>							
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Shasta Lake near dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DatesSource>Observed</DatesSource>				
+					<InterpolationSource>Observed</InterpolationSource>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<snapto0depth>True</snapto0depth>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>							
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DatesSource>Observed</DatesSource>
+					<InterpolationSource>Observed</InterpolationSource>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<snapto0depth>True</snapto0depth>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>							
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Shasta Lake near dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DatesSource>Observed</DatesSource>
+					<InterpolationSource>Observed</InterpolationSource>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<W2_Segment>76</W2_Segment>
+							<omitvalue>-146.2</omitvalue>
+							<snapto0depth>True</snapto0depth>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/USBR/SHASTA/ELEVATION//1HOUR/USBR_BLESSED/</DSS_Path>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+<!--This section bounds will need to be updated manually if the base range changes; did not use the templates-->
+<!--Current settings: TW: 30-80, Q: 0-20,000, EL: 700-1100-->
+<!--Elevation lower limit is 700 for this figure, but 800 for other elevation plots because of the lowest gate height of 800.-->
+				<Header>Shasta Lake Outflow Temperature, Flow, Elevation, and Gates</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>This composite figure includes all aspects of Shasta Dam outflow in four panels.
+-The uppermost panel illustrates simulated dam outflow temperature throughout the calendar year. Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis.
+-The second panel includes flow (cfs) through each modeled gate level and side gate structure through time. Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis.  These figures show the gate progression through the spring, summer and fall to manage water temperature releases to meet downstream objectives.
+-The third panel includes the historical gate use and side gate structure through time. Time (date) is represented on the x-axis and elevation (by TCD gate) is represented on the y-axis. Each gate level is represented as 5 horizontal bars - where each bar represents one of the 5 gates. These figures show the gate progression through the spring, summer and fall to manage water temperature releases to meet downstream objectives.
+-The fourth panel includes a plot of simulated and observed Shasta Lake surface elevation (ft) through time, showing the general increase in storage in the spring and then declining elevations through summer and fall. The vertical extent of TCD Gate levels is shown on this panel.
+
+A table of legend entries and abbreviations describing the lines and symbols in the figure is below.
+
+%%b%%Legend Key%%/b%%
+TCDU1 = Temperature Control Device - Upper Level, Top Outlet
+TCDU2 = Temperature Control Device - Upper Level, Middle/Center Outlet
+TCDU3 = Temperature Control Device - Upper Level, Bottom Outlet
+TCDM1 = Temperature Control Device - Middle Level, Top Outlet
+TCDM2 = Temperature Control Device - Middle Level, Middle/Center Outlet
+TCDM3 = Temperature Control Device - Middle Level, Bottom Outlet
+TCDL1 = Temperature Control Device - Lower Level, Top Outlet
+TCDL2 = Temperature Control Device - Lower Level, Middle/Center Outlet
+TCDL3 = Temperature Control Device - Lower Level, Bottom Outlet
+TCDS1 = Temperature Control Device - Side Level, Top Outlet
+TCDS2 = Temperature Control Device - Side Level, Middle/Center Outlet
+TCDS3 = Temperature Control Device - Side Level, Bottom Outlet
+RRU = River Release, Upper Outlets  
+RRM = River Release, Middle Outlets  
+RRL = River Release, Lower Outlets  
+TCD_d  = Temperature Control Device - Low-Level Intake
+TCDL = Temperature Control Device - Lower
+TCDM = Temperature Control Device - Middle
+TCDS = Temperature Control Device - Side
+TCDU = Temperature Control Device - Upper
+U1 = Temperature Control Device - Upper 1
+U2 = Temperature Control Device - Upper 2
+U3 = Temperature Control Device - Upper 3
+U4 = Temperature Control Device - Upper 4
+U5 = Temperature Control Device - Upper 5
+M1 = Temperature Control Device - Middle 1
+M2 = Temperature Control Device - Middle 2
+M3 = Temperature Control Device - Middle 3
+M4 = Temperature Control Device - Middle 4
+M5 = Temperature Control Device - Middle 5
+L1 = Temperature Control Device - Lower 1
+L2 = Temperature Control Device - Lower 2
+L3 = Temperature Control Device - Lower 3
+L4 = Temperature Control Device - Lower 4
+L5 = Temperature Control Device - Lower 5
+S1 = Temperature Control Device - Side 1
+S2 = Temperature Control Device - Side 2
+TCDUupp = Temperature Control Device - Upper, Top Elevation
+TCDUlow = Temperature Control Device - Upper, Bottom Elevation
+TCDMupp = Temperature Control Device - Middle, Top Elevation
+TCDMlow = Temperature Control Device - Middle, Bottom Elevation
+TCDLupp = Temperature Control Device - Lower, Top Elevation
+TCDLlow = Temperature Control Device - Lower, Bottom Elevation</Text>
+
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>Shasta Lake, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Shasta Lake outflow temperature, flows, elevation, and gates, %%year%%. CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<sharex>True</sharex>
+					<spacebetweenaxis>False</spacebetweenaxis>
+					<axs>
+						<ax>
+							<ylabel>Temperature (%%units%%)</ylabel>
+							<ylims>
+								<min>30</min>
+								<max>80</max>
+							</ylims>
+							<yticks>
+								<spacing>10</spacing>
+							</yticks>
+							<legend_outside>true</legend_outside>
+							<Lines>
+								<Line>
+									<label>Observed</label>
+									<Flag>Observed</Flag>
+									<Parameter>temperature</Parameter>
+									<yaxis>left</yaxis>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineColor>#5b9bd5</lineColor>
+									<lineWidth>1</lineWidth>
+									<lineStylePattern>solid</lineStylePattern>
+									<alpha>0.3</alpha>
+									<zorder>7</zorder>
+									<omitvalue>-901.0</omitvalue>
+								</Line>
+								<Line>
+									<label>Observed Daily</label>
+									<Flag>Observed</Flag>
+									<Parameter>temperature</Parameter>
+									<Type>PER-AVER</Type>
+									<Interval>1DAY</Interval>
+									<yaxis>left</yaxis>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1DAY/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineColor>darkblue</lineColor>
+									<lineWidth>1</lineWidth>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+									<omitvalue>-901.0</omitvalue>
+								</Line>
+								<Line>
+									<label>Simulated</label>
+									<Flag>Computed</Flag>
+									<skiprows>3</skiprows>
+									<yaxis>left</yaxis>
+									<Parameter>Temperature</Parameter>
+									<W2_File>TWO_77.OPT</W2_File>
+									<lineColor>red</lineColor>
+									<lineStylePattern>dashed</lineStylePattern>
+									<zorder>4</zorder>
+									<omitvalue>-146.2</omitvalue>
+									<alpha>0.4</alpha>
+								</Line>
+								<Line>
+									<label>Simulated Daily</label>
+									<Flag>Computed</Flag>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<omitvalue>-146.2</omitvalue>
+									<yaxis>left</yaxis>
+									<skiprows>3</skiprows>
+									<lineColor>darkred</lineColor>
+									<lineStylePattern>dashed</lineStylePattern>
+									<Parameter>Temperature</Parameter>
+									<W2_File>TWO_77.OPT</W2_File>
+									<zorder>9</zorder>	
+								</Line>
+							</Lines>
+						</ax>
+						<ax>
+							<ylabel2>Flow (%%units2%%)</ylabel2>
+							<unitsystem>english</unitsystem>
+							<!-- <weight>.4</weight> -->
+							<numlegendcolumns>2</numlegendcolumns>
+							<ylims2>
+								<min>0</min>
+								<max>20000</max>
+							</ylims2>
+							<yticks2>
+								<spacing>2000</spacing>
+							</yticks2>
+							<twinx>true</twinx>
+							<legend_outside>True</legend_outside>
+							<Lines>
+								<Line>
+									<label>Spill</label>
+									<flag>Str1</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str1_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDU1</label>
+									<flag>Str2</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str2_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDU2</label>
+									<flag>Str3</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str3_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDU3</label>
+									<flag>Str4</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str4_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDM1</label>
+									<flag>Str5</flag>
+									<yaxis>right</yaxis>
+									<units>cms</units>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str5_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDM2</label>
+									<flag>Str6</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str6_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDM3</label>
+									<flag>Str7</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str7_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDL1</label>
+									<flag>Str8</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str8_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDL2</label>
+									<flag>Str9</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str9_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDL3</label>
+									<flag>Str10</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str10_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDS1</label>
+									<flag>Str11</flag>
+									<linestylepattern>dashed</linestylepattern>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<W2_File>qwo_str11_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDS2</label>
+									<flag>Str12</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str12_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCDS3</label>
+									<flag>Str13</flag>
+									<units>cms</units>
+									<yaxis>right</yaxis>
+									<linestylepattern>dashed</linestylepattern>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str13_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>RRU</label>
+									<flag>Str14</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<yaxis>right</yaxis>
+									<W2_File>qwo_str14_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>RRM</label>
+									<flag>Str15</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str15_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>RRL</label>
+									<flag>Str16</flag>
+									<units>cms</units>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str16_seg77.OPT</W2_File>
+								</Line>
+								<Line>
+									<label>TCD_d</label>
+									<flag>Str17</flag>
+									<units>cms</units>					
+									<lineColor>#5b9bd5</lineColor>									
+									<alpha>0.5</alpha>
+									<linestylepattern>dashed</linestylepattern>
+									<yaxis>right</yaxis>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<W2_File>qwo_str23_seg77.OPT</W2_File>
+								</Line>		
+							</Lines>
+						</ax>
+						<ax>
+							<ylabel>Active TCD Gates</ylabel>
+							<yticksize>8</yticksize>
+							<gatespacing>5</gatespacing>
+							<weight>.75</weight>
+							<legend_outside>true</legend_outside>
+							<numlegendcolumns>2</numlegendcolumns>
+							<operationlines>
+								<linecolor>grey</linecolor>
+								<alpha>.6</alpha>
+								<linewidth>1</linewidth>
+								<linestylepattern>dashed</linestylepattern>
+								<allaxis>True</allaxis>
+							</operationlines>
+							<gateops>
+								<gateop>
+									<label>TCDU</label>
+									<flag>TCDU</flag>
+									<gates>
+										<gate>
+											<label>U1</label>
+											<flag>U1</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_U1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>darkblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U2</label>
+											<flag>U2</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_U2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>blue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U3</label>
+											<flag>U3</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_U3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>royalblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U4</label>
+											<flag>U4</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_U4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>cornflowerblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U5</label>
+											<flag>U5</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_U5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>lightsteelblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDM</label>
+									<flag>TCDM</flag>
+									<gates>
+										<gate>
+											<label>M1</label>
+											<flag>M1</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_M1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>darkorange</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M2</label>
+											<flag>M2</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_M2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>orange</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M3</label>
+											<flag>M3</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_M3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>gold</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M4</label>
+											<flag>M4</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_M4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>yellow</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M5</label>
+											<flag>M5</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_M5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>palegoldenrod</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDL</label>
+									<flag>TCDL</flag>
+									<gates>
+										<gate>
+										<label>L1</label>
+										<flag>L1</flag>
+										<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+										<DSS_Path>/USBR/TCD_L1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+										<linecolor>darkgreen</linecolor>
+										<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L2</label>
+											<flag>L2</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_L2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>forestgreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L3</label>
+											<flag>L3</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_L3/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>green</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L4</label>
+											<flag>L4</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_L4/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>limegreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L5</label>
+											<flag>L5</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_L5/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>lightgreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDS</label>
+									<flag>TCDS</flag>
+									<gates>
+										<gate>
+											<label>S1</label>
+											<flag>S1</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_S1/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>purple</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>S2</label>
+											<flag>S2</flag>
+											<DSS_Filename>%%SimulationDir%%\shared\WTMP_SacTrn_Historical.dss</DSS_Filename>
+											<DSS_Path>/USBR/TCD_S2/GATE//1HOUR/USBR_BLESSED/</DSS_Path>
+											<linecolor>violet</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+							</gateops>
+						</ax>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<weight>0.5</weight>
+							<unitsystem>english</unitsystem>
+							<xlabel>Date</xlabel>
+							<legend_outside>true</legend_outside>
+							<ylims>
+								<min>700</min>
+								<max>1100</max>
+							</ylims>
+							<hlines>
+								<hLine>
+									<label>TCDUupp</label>
+									<value>1048</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hLine>
+								<hLine>
+									<label>TCDUlow</label>
+									<value>1000</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hLine>
+								<hLine>
+									<label>TCDMupp</label>
+									<value>948</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hLine>
+								<hLine>
+									<label>TCDMlow</label>
+									<value>900</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hLine>
+								<hLine>
+									<label>TCDLupp</label>
+									<value>840</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hLine>
+								<hLine>
+									<label>TCDLlow</label>
+									<value>800</value>
+									<linecolor>red</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hLine>
+							</hlines>
+							<lines>
+								<Line>
+									<label>Observed</label>
+									<flag>Observed</flag>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<zorder>5</zorder>
+								</Line>
+								<Line>
+									<label>Simulated</label>
+									<flag>Computed</flag>
+									<parameter>elevation</parameter>
+									<w2_file>wl.opt</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 76</column>
+									<omitvalue>-146.2</omitvalue>
+									<units>m</units>
+									<linecolor>red</linecolor>
+									<zorder>6</zorder>
+									<linestylepattern>dashed</linestylepattern>
+								</Line>								
+							</lines>
+						</ax>
+					</axs>
+				</Object>
+<!--				<Object>					
+					<type>textbox</type>					
+					<text>%%b%%Legend Key%%/b%%
+TCDU1 = Temperature Control Device - Upper Level, Top Outlet
+TCDU2 = Temperature Control Device - Upper Level, Middle/Center Outlet
+TCDU3 = Temperature Control Device - Upper Level, Bottom Outlet
+TCDM1 = Temperature Control Device - Middle Level, Top Outlet
+TCDM2 = Temperature Control Device - Middle Level, Middle/Center Outlet
+TCDM3 = Temperature Control Device - Middle Level, Bottom Outlet
+TCDL1 = Temperature Control Device - Lower Level, Top Outlet
+TCDL2 = Temperature Control Device - Lower Level, Middle/Center Outlet
+TCDL3 = Temperature Control Device - Lower Level, Bottom Outlet
+TCDS1 = Temperature Control Device - Side Level, Top Outlet
+TCDS2 = Temperature Control Device - Side Level, Middle/Center Outlet
+TCDS3 = Temperature Control Device - Side Level, Bottom Outlet
+RRU = River Release, Upper Outlets  
+RRM = River Release, Middle Outlets  
+RRL = River Release, Lower Outlets  
+TCD_d  = Temperature Control Device - Low-Level Intake
+TCDL = Temperature Control Device - Lower
+TCDM = Temperature Control Device - Middle
+TCDS = Temperature Control Device - Side
+TCDU = Temperature Control Device - Upper
+U1 = Temperature Control Device - Upper 1
+U2 = Temperature Control Device - Upper 2
+U3 = Temperature Control Device - Upper 3
+U4 = Temperature Control Device - Upper 4
+U5 = Temperature Control Device - Upper 5
+M1 = Temperature Control Device - Middle 1
+M2 = Temperature Control Device - Middle 2
+M3 = Temperature Control Device - Middle 3
+M4 = Temperature Control Device - Middle 4
+M5 = Temperature Control Device - Middle 5
+L1 = Temperature Control Device - Lower 1
+L2 = Temperature Control Device - Lower 2
+L3 = Temperature Control Device - Lower 3
+L4 = Temperature Control Device - Lower 4
+L5 = Temperature Control Device - Lower 5
+S1 = Temperature Control Device - Side 1
+S2 = Temperature Control Device - Side 2
+TCDUupp = Temperature Control Device - Upper, Top Elevation
+TCDUlow = Temperature Control Device - Upper, Bottom Elevation
+TCDMupp = Temperature Control Device - Middle, Top Elevation
+TCDMlow = Temperature Control Device - Middle, Bottom Elevation
+TCDLupp = Temperature Control Device - Lower, Top Elevation
+TCDLlow = Temperature Control Device - Lower, Bottom Elevation</text>
+				</Object>	-->
+			</Section>
+			
+			<Section>
+				<Header>Shasta Lake Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Shasta Lake hourly outflow temperature, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<xlabel>Date</xlabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<axs>
+						<ax>
+							<Lines>
+								<Line>
+									<label>Observed</label>
+									<Flag>Observed</Flag>
+									<Parameter>temperature</Parameter>
+									<yaxis>left</yaxis>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineColor>#5b9bd5</lineColor>
+									<lineWidth>1</lineWidth>
+									<lineStylePattern>solid</lineStylePattern>
+									<alpha>0.3</alpha>
+									<zorder>7</zorder>
+									<omitvalue>-901.0</omitvalue>
+								</Line>
+								<Line>
+									<label>Observed Daily</label>
+									<Flag>Observed</Flag>
+									<Parameter>temperature</Parameter>
+									<Type>PER-AVER</Type>
+									<Interval>1DAY</Interval>
+									<yaxis>left</yaxis>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1DAY/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineColor>darkblue</lineColor>
+									<lineWidth>1</lineWidth>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+									<omitvalue>-901.0</omitvalue>
+								</Line>
+								<Line>
+									<label>Simulated</label>
+									<Flag>Computed</Flag>
+									<skiprows>3</skiprows>
+									<yaxis>left</yaxis>
+									<Parameter>Temperature</Parameter>
+									<W2_File>TWO_77.OPT</W2_File>
+									<lineColor>red</lineColor>
+									<lineStylePattern>dashed</lineStylePattern>
+									<zorder>4</zorder>
+									<omitvalue>-146.2</omitvalue>
+									<alpha>0.4</alpha>
+								</Line>
+								<Line>
+									<label>Simulated Daily</label>
+									<Flag>Computed</Flag>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<omitvalue>-146.2</omitvalue>
+									<yaxis>left</yaxis>
+									<skiprows>3</skiprows>
+									<lineColor>darkred</lineColor>
+									<lineStylePattern>dashed</lineStylePattern>
+									<Parameter>Temperature</Parameter>
+									<W2_File>TWO_77.OPT</W2_File>
+									<zorder>9</zorder>	
+								</Line>						
+							</Lines>
+						</ax>
+					</axs>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<skiprows>3</skiprows>
+							<omitvalue>-146.2</omitvalue>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<Parameter>Temperature</Parameter>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<omitvalue>-146.2</omitvalue>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<omitvalue>-146.2</omitvalue>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<omitvalue>-146.2</omitvalue>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly outflow temperature, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>nse</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<omitvalue>-146.2</omitvalue>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			
+			<Section>
+				<Header>Shasta Lake Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Shasta Lake hourly outflow, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_Q.xml</Template>
+					<unitsystem>english</unitsystem>							
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<xlabel>Date</xlabel>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<alpha>.4</alpha>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>3</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1DAY/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>                   
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+							<lineColor>Red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>
+							<alpha>.4</alpha>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							 <DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+							<lineColor>Red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<omitvalue>-146.2</omitvalue>
+							<lineWidth>2</lineWidth>
+							<zorder>7</zorder>
+						</Line>
+					</Lines>
+				</Object>				
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<Parameter>Flow</Parameter>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>					
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>					
+					<Description>Shasta Lake hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<statistic>meanbias</statistic>					
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<statistic>MAE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<Description>Shasta Lake hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<statistic>RMSE</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<statistic>nse</statistic>					
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Flow</Parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>flow</parameter>
+							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</DSS_Path>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/USBR/SHASTA_QOUT/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			<Section>
+				<Header>Shasta Lake Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Shasta Lake hourly elevation, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_EL.xml</Template>
+					<unitsystem>english</unitsystem>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>					
+					<splitbyyear>True</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<lines>										
+								<Line>
+									<label>Observed</label>
+									<flag>Observed</flag>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>									
+									<zorder>5</zorder>
+								</Line>							
+								<Line>
+									<label>Simulated</label>
+									<flag>Computed</flag>
+									<parameter>elevation</parameter>
+									<w2_file>wl.opt</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 76</column>
+									<omitvalue>-146.2</omitvalue>
+									<units>m</units>
+									<linecolor>red</linecolor>									
+									<zorder>6</zorder>
+									<linestylepattern>dashed</linestylepattern>
+								</Line>							
+							</lines>
+						</ax>
+					</axs>
+				</Object>				
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly elevation, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 0.50 %%units%%, MAE: %%gt%%1.00 %%units%%, RMSE: %%gt%%1.50 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Elevation</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>					
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<omitvalue>-146.2</omitvalue>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_EL.xml</Template>
+					<Parameter>Elevation</Parameter>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<omitvalue>-146.2</omitvalue>
+							<w2_file>wl.opt</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MeanBias.xml</Template>
+					<Description>Shasta Lake hourly elevation, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 0.50 %%units%%). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<omitvalue>-146.2</omitvalue>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.00 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<omitvalue>-146.2</omitvalue>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.50 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<omitvalue>-146.2</omitvalue>
+							<skiprows>1</skiprows>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<omitvalue>-146.2</omitvalue>
+							<skiprows>1</skiprows>
+							<column>SEG 76</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+			</Section>
+			
+		</Sections>
+	</Chapter>
+</Chapters>

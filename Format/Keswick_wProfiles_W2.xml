@@ -1,0 +1,1028 @@
+<!--Assume that ReportGenerator uses DSS info to determine units, so no units need to be explicitly stated-->
+<!--All W2 simulation results are assumed to be in SI units-->
+<!--Units should be specified for text file input files-->
+<Chapters>
+	<Chapter>
+		<Name>Keswick Reservoir</Name>
+		<Region>Keswick Reservoir</Region>
+		<Sections>
+			<Section>
+				<Header>Keswick Reservoir Above Keswick Dam Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation). </Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Keswick Reservoir above Keswick Dam branch temperature profiles, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_KES_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>										
+					<profilesperrow>4</profilesperrow>					
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>			<!--medium blue-->
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>	<!--In SI units-->		
+							<units>C</units>													<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<linecolor>red</linecolor>								
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>dashed</lineStylePattern>
+							<zorder>3</zorder>	
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+<!--							<w2_file>spr.opt</w2_file>
+							<skiprows>1</skiprows>
+							<column>Seg_101</column>						
+							<units>C</units>														-->
+							<omitvalue>-146.2</omitvalue>		<!--Because simulated may have null values, F equivaluent of -99C-->
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Observed WSE</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>													
+							<omitvalue>-901.0</omitvalue>
+						</hline>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>			<!--Model output file-->
+							<skiprows>1</skiprows>
+							<column>SEG 32</column>
+							<units>m</units>
+							<lineColors>
+								<linecolor>darkred</linecolor>								
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+				</Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir above Keswick Dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>					
+					<Parameter>Temperature</Parameter>					
+					<includeallyears>true</includeallyears>
+					<DatesSource>Observed</DatesSource>
+					<InterpolationSource>Observed</InterpolationSource>	
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+							<omitvalue>-146.2</omitvalue>					
+							<snapto0depth>True</snapto0depth>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</DataPath>
+					</DataPaths>								
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir above Keswick Dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>					
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<InterpolationSource>Observed</InterpolationSource>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+							<omitvalue>-146.2</omitvalue>
+							<snapto0depth>True</snapto0depth>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir above Keswick Dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<InterpolationSource>Observed</InterpolationSource>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+							<omitvalue>-146.2</omitvalue>
+							<snapto0depth>True</snapto0depth>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir above Keswick Dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>					
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<splitbyyear>true</splitbyyear>
+					<InterpolationSource>Observed</InterpolationSource>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+							<snapto0depth>True</snapto0depth>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir above Keswick Dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<InterpolationSource>Observed</InterpolationSource>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<units>C</units>
+							<snapto0depth>True</snapto0depth>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>							
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>						<!--Text file input, so specify units-->							
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>							
+								<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>			
+		
+			<Section>
+				<Header>Keswick Reservoir Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Keswick Reservoir hourly outflow temperature, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_KES_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<xlabel>Date</xlabel>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.3</alpha>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>9</zorder>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+							<lineColor>red</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>dashed</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+							<lineColor>red</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>dashed</lineStylePattern>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Keswick Reservoir hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Keswick Reservoir hourly outflow temperature, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>true</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<numberformats>
+						<numberformat>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<stat>count</stat>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+					</numberformats>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Keswick Reservoir hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>True</splitbyyear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Keswick Reservoir hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Keswick Reservoir hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>					
+					<Description>Keswick Reservoir hourly outflow temperature, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Parameter>Temperature</Parameter>
+					<statistic>nse</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			
+			<Section>
+				<Header>Keswick Reservoir Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Keswick Reservoir hourly outflow, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_KES_Q.xml</Template>					
+					<ylabel>Flow (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<parameter>flow</parameter>
+					<xlabel>Date</xlabel>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<alpha>.4</alpha>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>9</zorder>
+						</Line>					
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+							<lineColor>red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+							<alpha>.4</alpha>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+							<lineColor>red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<Parameter>Flow</Parameter>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_Q.xml</Template>
+					<Description>Keswick Reservoir hourly outflow, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<SplitByYear>true</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>meanbias</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir Hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>MAE</statistic>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>RMSE</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Keswick Reservoir hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<Parameter>flow</Parameter>
+					<statistic>nse</statistic>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>				
+			</Section>
+			<Section>
+				<Header>Keswick Reservoir Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Keswick Reservoir hourly elevation, %%year%%. CE-QUAL-W2.</Description>
+					<Template>format/templates/Plot_Defaults_KES_EL.xml</Template>
+					<unitsystem>english</unitsystem>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>					
+					<splitbyyear>True</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>observed</flag>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<alpha>.4</alpha>
+									<zorder>3</zorder>
+								</line>
+								<line>
+									<label>Observed Daily</label>
+									<flag>observed</flag>
+									<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<interval>1DAY</interval>
+									<type>PER-AVER</type>
+									<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<zorder>5</zorder>
+								</line>
+								<line>
+									<label>Simulated</label>
+									<flag>simulated</flag>
+									<parameter>elevation</parameter>
+									<w2_file>wl.opt</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 32</column>
+									<linecolor>red</linecolor>
+									<lineStylePattern>dashed</lineStylePattern>
+									<omitvalue>-901.0</omitvalue>
+									<units>m</units>
+									<alpha>0.4</alpha>
+									<zorder>4</zorder>
+								</line>
+								<line>
+									<label>Simulated Daily</label>
+									<flag>simulated</flag>
+									<parameter>elevation</parameter>
+									<w2_file>wl.opt</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 32</column>
+									<linecolor>red</linecolor>								
+									<lineStylePattern>dashed</lineStylePattern>
+									<omitvalue>-901.0</omitvalue>
+									<interval>1DAY</interval>
+									<type>PER-AVER</type>
+									<zorder>6</zorder>
+									<units>m</units>
+								</line>
+							</lines>
+						</ax>
+					</axs>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Elev.xml</Template>
+					<Description>Keswick Reservoir hourly elevation, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 0.50 %%units%%, MAE: %%gt%%1.00 %%units%%, RMSE: %%gt%%1.50 %%units%%, NSE: %%lt%%0.65). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<units>m</units>
+							<column>SEG 32</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/Keswick/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Keswick Reservoir hourly elevation, monthly means (%%units%%) and counts. CE-QUAL-W2.</Description>
+					<Parameter>Elevation</Parameter>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<SplitByYear>True</SplitByYear>
+					<numberformats>
+						<numberformat>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<stat>count</stat>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+					</numberformats>
+					<numberformats>
+						<numberformat>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<stat>count</stat>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+					</numberformats>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<units>m</units>
+							<column>SEG 32</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MeanBias.xml</Template>	
+					<Description>Keswick Reservoir hourly elevation, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 0.50 %%units%%). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<units>m</units>
+							<skiprows>1</skiprows>
+							<column>SEG 32</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Keswick Reservoir hourly Elevation, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.00 %%units%%). CE-QUAL-W2.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>MAE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>				
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<units>m</units>
+							<column>SEG 32</column>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_RMSE.xml</Template>
+					<Description>Keswick Reservoir hourly elevation, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.50 %%units%%). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>Elevation</Parameter>
+					<statistic>RMSE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 32</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_NSE.xml</Template>
+					<Description>Keswick Reservoir hourly elevation, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). CE-QUAL-W2.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>Elevation</Parameter>
+					<statistic>NSE</statistic>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>True</splitbyyear>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<w2_file>wl.opt</w2_file>
+							<skiprows>1</skiprows>
+							<column>SEG 32</column>
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<DSS_Filename>%%observedDir%%\WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+			</Section>			
+		</Sections>
+	</Chapter>
+</Chapters>

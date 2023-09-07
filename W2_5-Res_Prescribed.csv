@@ -1,0 +1,8 @@
+,,Format\AcronymList.XML
+CeQualW2, W2 Shasta Prescribed, Format\Shasta_W2_TCD.XML
+CeQualW2, W2 Keswick Prescribed, Format\Keswick_wProfiles_W2.XML
+CeQualW2, W2 Trinity Prescribed, Format\TrinityRes_wProfile_W2.XML
+CeQualW2, W2 Lewiston Prescribed, Format\Lewiston_wProfile_W2.XML
+CeQualW2, W2 Whiskeytown Prescribed, Format\Whiskeytown_w5Profiles_W2_2016L.XML
+ResSim, RSSacTrnRv, Format\UpperSac_ResSim_TCD_no_IGO_USBR.XML
+ResSim, RSSacTrnRv, Format\Trinity_River_ResSim_USBR.xml
