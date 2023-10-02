@@ -1,0 +1,594 @@
+<Chapters>
+	<Chapter>
+		<Name>Summary of Models</Name>
+		<debug>true</debug>
+		<Sections>
+			<Section>
+				<header>Shasta</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Shasta Lake Outflow Forecast Runs with Envelopes</title>
+					<Description>Shasta Lake Outflow Temperature variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Shasta Lake Outflow Forecast Runs</title>
+					<Description>Shasta Lake Outflow Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<!-- <Object> -->
+					<!-- <Type>tablefromfile</Type> -->
+					<!-- <Description>Shasta Lake Iterations</Description> -->
+					<!-- <formatPrimaryAsCollection>true</formatPrimaryAsCollection> -->
+					<!-- <Datapaths> -->
+						<!-- <Datapath> -->
+							<!-- <filename>%%SimulationDir%%\SRTTG_reporting.csv</filename> -->
+						<!-- </Datapath> -->
+					<!-- </Datapaths> -->
+				<!-- </Object> -->
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Shasta Lake Outflow Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+			<Section>
+				<header>Keswick</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Keswick Dam Outflow Forecast Runs with Envelopes</title>
+					<Description>Keswick Dam Outflow Temperature variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Keswick Dam Outflow Temperature Forecast Runs</title>
+					<Description>Keswick Dam Outflow Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Keswick Dam Outflow Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+			<Section>
+				<header>Sacramento River at Clear Creek (CCR)</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Sacramento River at Clear Creek Forecast Runs with Envelopes</title>
+					<Description>Clear Creek to Sacramento River Temperature variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>CCR</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Clear Creek to Sacramento River Temperature Forecast Runs</title>
+					<Description>Clear Creek to Sacramento River Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Clear Creek to Sacramento River Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+			<Section>
+				<header>Lewiston Dam</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Lewiston Dam Outflow Water Temperature Forecast Runs with Envelopes</title>
+					<Description>Lewiston Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Lewiston Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Lewiston Dam Outflow Temperature Forecast Runs</title>
+					<Description>Lewiston Dam Outflow Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Lewiston Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Lewiston Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Lewiston Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+			<Section>
+				<header>Trinity Dam</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Trinity Dam Outflow Water Temperature Forecast Runs with Envelopes</title>
+					<Description>Trinity Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Trinity Dam Outflow Temperature Forecast Runs</title>
+					<Description>Trinity Dam Outflow Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Trinity Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+			<Section>
+				<header>Whiskeytown Dam</header>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Whiskeytown Dam Outflow Water Temperature Forecast Runs with Envelopes</title>
+					<Description>Whiskeytown Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<linecolor>darkgreen</linecolor>
+							<interval>1DAY</interval>
+							<envelopes>
+								<envelope>
+									<percent>100</percent>
+									<label>Maximum</label>
+									<linestylepattern>dotted</linestylepattern>
+									<linewidth>3</linewidth>
+								</envelope>
+								<envelope>
+									<percent>0</percent>
+									<label>Minimum</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>dotted</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>25</percent>
+									<label>Percentile: 25%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>75</percent>
+									<label>Percentile 75%</label>
+									<linestylepattern>dashed</linestylepattern>
+								</envelope>
+								<envelope>
+									<percent>50</percent>
+									<label>Mean</label>
+									<linewidth>3</linewidth>
+									<linestylepattern>solid</linestylepattern>
+								</envelope>
+							</envelopes>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Whiskeytown Dam Outflow Temperature Forecast Runs</title>
+					<Description>Whiskeytown Dam Outflow Temperature variable input</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<legend_outside>True</legend_outside>
+					<unitsystem>english</unitsystem>
+					<lines>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Iteration</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Whiskeytown Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<xlims>
+						<min>01 May %%year%%</min>
+						<max>01 Sep %%year%%</max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Computed</flag>
+							<label>Computed</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>%%member%%|%%maximum.Computed%%|%%mean.Computed%%|%%minimum.Computed%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>
