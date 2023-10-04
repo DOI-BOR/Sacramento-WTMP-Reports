@@ -4,6 +4,13 @@
 		<debug>true</debug>
 		<Sections>
 			<Section>
+				<header>Iteration Summary</header>
+				<Object>
+					<type>forecasttable</type>
+					<Description>Iteration run information</Description>
+				</Object>
+			</Section>
+			<Section>
 				<header>Shasta</header>
 				<Object>
 					<type>timeseriesplot</type>

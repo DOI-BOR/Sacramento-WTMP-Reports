@@ -1,0 +1,458 @@
+<Chapters>
+	<Chapter>
+		<Name>Trinity Lake</Name>
+		<Region>Trinity</Region>
+		<resolution>high</resolution>
+		<Sections>
+			<Section>
+				<Header>Trinity Lake Temperatures</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).
+</Text>
+				</Object>
+
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Trinity Lake near dam temperature profiles, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_TRI_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<Parameter>Temperature</Parameter>
+					<profilesperrow>4</profilesperrow>
+					<DatesSource>Observed_S1</DatesSource>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\TrinityProf.txt</FileName>
+							<units>C</units>		<!--Text file input, so specify units-->
+							<wse>
+								<parameter>elevation</parameter>
+								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>								
+								<DSS_Path>/USBR_RECLEANED_FULLLINEARINTERP/TRN_ELEVATION/ELEV//1HOUR/GRAB2/</DSS_Path>
+							</wse>
+						</Line>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Trinity Lake</ResSimResName>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+							<omitvalue>-146.2</omitvalue>
+						</Line>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>													
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>dashed</lineStylePattern>
+							<zorder>3</zorder>
+							<w2_segment>52</w2_segment>
+							<omitvalue>-146.2</omitvalue>		<!--F equivalent of -99C-->														
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<label>Simulated WSE</label>
+							<flag>waterlevel</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Trinity Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<scalar>1</scalar>
+							<linecolor>darkred</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+				</Object>
+
+
+			</Section>
+			<Section>
+				<Header>Trinity Lake Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Description>Trinity Lake hourly outflow temperature, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_TRI_TW.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+<!--					<yticks>
+						<spacing>2</spacing>
+					</yticks>-->
+					<xlabel>Date</xlabel>
+
+
+					<Lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/TRINITY_DAM_OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<omitvalue>-901.0</omitvalue>
+							<alpha>0.3</alpha>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/TRINITY_DAM_OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>						
+						<Line>
+							<label>%%simulationname%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<w2_file>two_wd1_seg52.csv</w2_file>
+							<skiprows>3</skiprows>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<lineStylePattern>dash</lineStylePattern>
+							<filters>
+								<filter>
+									<w2_file>qwo_wd1_seg52.csv</w2_file>
+									<skiprows>3</skiprows>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<value>0.028316847</value>
+									<when>under</when>
+								</filter>
+							</filters>
+							<lineWidth>2</lineWidth>
+							<zorder>5</zorder>
+						</Line>
+						<line>
+							<label>%%simulationname%% Daily</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<filterbylimits>True</filterbylimits>
+							<DSS_Path>//TRINITY DAM/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+							<omitvalue>0</omitvalue>
+						</line>
+					</Lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Trinity Lake hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>					
+					<Parameter>Temperature</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>													
+							<w2_file>two_wd1_seg52.csv</w2_file>
+							<skiprows>3</skiprows>
+							<units>c</units>
+							<filters>
+								<filter>
+									<w2_file>qwo_wd1_seg52.csv</w2_file>
+									<skiprows>3</skiprows>
+									<value>0.028316847</value>
+									<when>under</when>
+								</filter>
+							</filters>
+						</DataPath>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/TRINITY_DAM_OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Trinity Lake hourly outflow temperature, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>													
+							<w2_file>two_wd1_seg52.csv</w2_file>
+							<skiprows>3</skiprows>
+							<units>c</units>
+							<filters>
+								<filter>
+									<w2_file>qwo_wd1_seg52.csv</w2_file>
+									<skiprows>3</skiprows>
+									<value>0.028316847</value>
+									<when>under</when>
+								</filter>
+							</filters>
+						</DataPath>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/TRINITY_DAM_OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>					
+					</DataPaths>
+				</Object> 
+
+			</Section>
+			<Section>
+				<Header>Trinity Lake Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Description>Trinity Lake hourly outflow, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_TRI_Q.xml</Template>	
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<Lines>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineColor>#5b9bd5</lineColor>
+							<alpha>0.4</alpha>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>flow</Parameter>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<linecolor>#5b9bd5</linecolor>
+							<lineWidth>1</lineWidth>
+							<lineColor>#5b9bd5</lineColor>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+						</Line>
+						<Line>
+							<label>%%simulationname%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<units>cms</units>
+							<Parameter>Flow</Parameter>
+							<w2_file>qwo_52.csv</w2_file>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<linestylepattern>dashed</linestylepattern>
+							<lineWidth>2</lineWidth>
+							<zorder>6</zorder>
+						</Line>
+						<Line>
+							<label>%%simulationname%% Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Flow</Parameter>
+							<DSS_Path>//Trinity Lake-Pool/Flow-OUT//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<linestylepattern>dashed</linestylepattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</Line>						
+					</Lines>
+
+				</Object>
+			</Section>
+			
+			<Section>
+				<Header>Trinity Lake Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Template>format/templates/Plot_Defaults_TRI_EL.xml</Template>
+					<Description>Trinity Lake hourly elevation, %%year%%. ResSim.</Description>					
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<splitbyyear>False</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<unitsystem>english</unitsystem>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>observed</flag>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR_RECLEANED_FULLLINEARINTERP/TRN_ELEVATION/ELEV//1HOUR/GRAB2/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<omitvalue>-901.0</omitvalue>
+								</line>
+								<line>
+									<label>%%SimulationName%% Daily</label>
+									<flag>computed</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<parameter>elevation</parameter>
+									<DSS_Path>//Trinity Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+									<lineStylePattern>dashed</lineStylePattern>
+								</line>
+								<Line>
+									<label>%%SimulationName%% Daily</label>
+									<Flag>computed</Flag>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<w2_file>wl.csv</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 52</column>
+									<units>m</units>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+									<lineStylePattern>dash</lineStylePattern>
+									<lineWidth>2</lineWidth>
+									<zorder>6</zorder>
+								</Line>
+							</lines>
+
+						</ax>
+					</axs>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

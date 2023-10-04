@@ -1,0 +1,412 @@
+<Chapters>
+	<Chapter>
+		<Name>Keswick Reservoir</Name>
+		<Region>Keswick</Region>
+		<resolution>high</resolution>
+		<Sections>
+			<Section>
+				<Header>Keswick Reservoir Temperatures</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.  Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in two graphs. If the lake has multiple locations observed profiles, individual graphs are provided for each location or at the site immediately upstream of the dam (not all locations are available in all years).
+
+Each profile includes the date, observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation).
+</Text>
+				</Object>
+
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Keswick Reservoir near dam temperature profiles, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_KES_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<Parameter>Temperature</Parameter>
+					<profilesperrow>4</profilesperrow>
+					<DatesSource>Observed_S1</DatesSource>
+<!--					<XLims>
+						<min>0</min>
+						<max>30</max>
+					</XLims>
+					<YLims>
+						<min>500</min>
+						<max>590</max>
+					</YLims>
+					<xticks>
+						<spacing>5</spacing>
+					</xticks> -->
+					<Lines>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Keswick Reservoir</ResSimResName>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>%%SimulationName%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<w2_segment>101</w2_segment>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed R1</label>
+							<Flag>Observed_S1</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\Keswick_R1_2010_2017-2020.txt</FileName>
+							<units>C</units>
+						</Line>
+					</Lines>
+					<hlines>
+						<hline>
+							<flag>waterlevel</flag>
+							<label>Simulated WSE</label>
+							<parameter>elevation</parameter>
+							<interval>1HOUR</interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Keswick Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<scalar>1</scalar>
+							<linecolor>darkred</linecolor>
+						</hline>
+					</hlines>
+				</Object>
+
+
+			</Section>
+			<Section>
+				<Header>Keswick Reservoir Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Description>Keswick Reservoir hourly outflow temperature, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_KES_TW.xml</Template>
+					<unitsystem>english</unitsystem>					
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<yearblocks>10</yearblocks>
+<!--					<yticks>
+						<spacing>2</spacing>
+					</yticks>-->
+					<xlabel>Date</xlabel>
+					<lines>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.3</alpha>
+							<omitvalue>-901.0</omitvalue>
+						</line>
+						<line>
+							<label>Observed Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>INST-VAL</Type>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</line>	
+						<Line>
+							<label>%%simulationname%%</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>dashed</lineStylePattern>
+							<zorder>9</zorder>
+						</Line>
+						<line>
+							<label>%%simulationname%%</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//KESWICK RESERVOIR-CONTROLLED OUTLET/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>orange</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</line>
+					</lines>
+				</Object>
+
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Description>Keswick Reservoir hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (mean bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>					
+					<Parameter>Temperature</Parameter>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//KESWICK RESERVOIR-CONTROLLED OUTLET/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Keswick Reservoir hourly outflow temperature, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:TWO_102.OPT/SEG 102 WITHDRAWAL/TEMP-TWO/31Dec2013 - 31Dec2014/1HOUR/%%FPART%%/</dss_path>
+						</DataPath>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//KESWICK RESERVOIR-CONTROLLED OUTLET/TEMP-WATER TEMPERATURE//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<omitvalue>0</omitvalue>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<DSS_Path>/USBR/KESWICK_TOUT/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object> 
+
+			</Section>
+			<Section>
+				<Header>Keswick Reservoir Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Description>Keswick Reservoir hourly outflow, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_KES_Q.xml</Template>	
+					<unitsystem>english</unitsystem>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>true</includeallyears>
+					<lines>
+						<line>
+							<label>%%simulationname%%</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//KESWICK RESERVOIR-CONTROLLED OUTLET/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColors>
+								<linecolor>red</linecolor>
+								<linecolor>green</linecolor>
+								<linecolor>darkblue</linecolor>
+							</lineColors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>7</zorder>
+						</line>
+						<Line>
+							<label>%%simulationname%%</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<dss_Filename>%%modeldss%%</dss_Filename>
+							<dss_path>/W2:QWO_102.OPT/SEG 102 WITHDRAWAL/FLOW-QWD//1HOUR/%%FPART%%/</dss_path>
+							<linecolors>
+								<linecolor>darkgreen</linecolor>
+								<linecolor>maroon</linecolor>
+								<linecolor>violet</linecolor>
+							</linecolors>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>9</zorder>
+						</Line>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</line>
+					</lines>
+				</Object>
+			</Section>
+			
+			<Section>
+				<Header>Keswick Reservoir Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation Comparison %%year%%</Title>
+					<Template>format/templates/Plot_Defaults_KES_EL.xml</Template>
+					<Description>Keswick Reservoir hourly elevation, %%year%%. ResSim.</Description>					
+					<unitsystem>english</unitsystem>
+					<includeallyears>true</includeallyears>
+					<xlabel>Date</xlabel>
+					<legendsize>9</legendsize>
+					<splitbyyear>False</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<unitsystem>english</unitsystem>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>observed</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>#5b9bd5</linecolor>
+									<omitvalue>-901.0</omitvalue>
+								</line>
+								<line>
+									<label>%%simulationname%%</label>
+									<flag>Computed</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>//Keswick Reservoir-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+									<linecolors>
+										<linecolor>red</linecolor>
+										<linecolor>green</linecolor>
+										<linecolor>darkblue</linecolor>
+									</linecolors>
+									<lineStylePattern>dashed</lineStylePattern>
+								</line>
+								<line>
+									<label>%%simulationname%%</label>
+									<flag>computed</flag>
+									<parameter>elevation</parameter>
+									<w2_file>wl.opt</w2_file>
+									<skiprows>1</skiprows>
+									<column>SEG 32</column>
+									<linecolors>
+										<linecolor>darkgreen</linecolor>
+										<linecolor>maroon</linecolor>
+										<linecolor>violet</linecolor>
+									</linecolors>
+									<lineStylePattern>dashed</lineStylePattern>
+									<omitvalue>-901.0</omitvalue>
+									<units>m</units>
+									<alpha>0.4</alpha>
+									<zorder>4</zorder>
+								</line>
+							</lines>
+							<hlines>
+								<hline>
+									<label>Spillway Crest</label>
+									<value>537</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hline>
+								<hline>
+									<label>Intake Top</label>
+									<value>547.5</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hline>
+							</hlines>
+						</ax>
+					</axs>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>
