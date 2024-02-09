@@ -1,0 +1,2195 @@
+<!--Assume that ReportGenerator uses DSS info to determine units, so no units need to be explicitly stated-->
+<!--All ResSim simulation results are assumed to be in SI units-->
+<!--Units should be specified for text file input files-->
+<!--Units are assumed specified in the DSS file-->
+<Chapters>
+	<Chapter>
+		<Name>Shasta Lake</Name>
+		<Region>Shasta Lake</Region>
+		<resolution>high</resolution>
+		<Sections>
+			<Section>
+				<Header>Shasta Lake Near Dam Temperature Profiles</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Temperature profiles plots represent the vertical distribution of water temperatures in the lake. Because water temperatures impact density, warmer waters occupy the surface portions of the lake and cooler waters occupy the deeper portions of the lake, i.e., stratification. In the winter or in shallower reservoirs with substantial flow through, vertical temperature profiles can be uniform from the surface to the bottom (Isothermal conditions). 
+
+These plots compare simulated and observed temperature profiles throughout the calendar year that aided in model calibration.  Temperature (%%degrees%%F) is represented on the x-axis and elevation (ft) is represented on the y-axis.   Generally, observed temperature profiles were available monthly; however, in certain years profiles were more or less frequently.   When there are more than 12 observed temperature profiles available for a year, the information is presented in additional graphs.
+
+Each profile includes the date,  observed (light blue) and simulated (red-dashed) water temperature profile, and observed (dark blue) and simulated (dark red dashed) water surface elevation (WSE) on the date of the simulation (plotted as a horizontal line at the respective elevation). 
+
+In addition, the active Shasta Dam Temperature Control Device gate levels are shown on the graph, with the Upper (red), Middle (Green), and Lower (Purple) gate levels shown as shaded bands (depicting their approximate vertical extent of the gates), and the side gate intake elevation is shown as a single orange line.  Active individual gates at each gate level are denoted by  black dots.  A vertical line (dashed orange) indicates the observed water temperature below the dam. Finally, at the bottom of each profile are two numbers in a red font. The first red number (left) indicates the number of days that the TCD gate levels (denoted by colored bands) have been active at the time of the profile was measured.  The second red number (right) indicates the number of days that the individual TCD gates (denoted by black dots) have been active at the time of the profile was measured. </Text>
+				</Object>
+				<Object>
+					<Type>ProfilePlot</Type>
+					<Description>Shasta Lake near dam temperature profiles, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<XLabel>Temperature (%%units%%)</XLabel>
+					<SplitByYear>True</SplitByYear>
+					<legend>True</legend>
+					<datetext>True</datetext>
+					<profilesperrow>4</profilesperrow>
+					<Parameter>Temperature</Parameter>
+					<bottomtext>
+						<text>gateconfiguration</text>
+						<text>gateblend</text>
+					</bottomtext>
+					<bottomtextfontsize>9</bottomtextfontsize>
+					<hlines>
+						<hline>
+							<flag>waterlevel</flag>
+							<label>Simulated WSE</label>
+							<parameter>elevation</parameter>
+							<interval>1HOUR</interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<scalar>1</scalar>
+							<linecolor>darkred</linecolor>
+							<lineStylePattern>dashed</lineStylePattern>
+						</hline>
+					</hlines>
+					<vlines>
+						<vline>
+							<Flag>twtarget</Flag>
+							<label>Target TW</label>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<linecolor>orange</linecolor>
+							<linestylepattern>dashed</linestylepattern>
+						</vline>
+					</vlines>
+					<Lines>
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>
+							<lineColor>Red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>4</zorder>
+						</Line>
+						<Line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>		<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</Line>
+					</Lines>
+					<showgates>false</showgates>		<!--W2 has this flag set to true-->
+					<gateops>
+						<gateop>
+							<flag>TCDU</flag>
+							<label>TCDU</label>
+							<color>#dfa7a6</color>
+							<parameter>elevation</parameter>
+							<top>1048</top>
+							<bottom>1000</bottom>
+							<gates>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_T/Gate Position 1//1Hour/230.13.224.T.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_T/Gate Position 2//1Hour/230.13.224.T.2/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_T/Gate Position 3//1Hour/230.13.224.T.3/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_T/Gate Position 4//1Hour/230.13.224.T.4/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_T/Gate Position 5//1Hour/230.13.224.T.5/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDM</flag>
+							<label>TCDM</label>
+							<color>#cdddac</color>
+							<parameter>elevation</parameter>
+							<top>948</top>
+							<bottom>900</bottom>
+							<gates>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_M/Gate Position 1//1Hour/230.13.224.M.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_M/Gate Position 2//1Hour/230.13.224.M.2/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_M/Gate Position 3//1Hour/230.13.224.M.3/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_M/Gate Position 4//1Hour/230.13.224.M.4/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_M/Gate Position 5//1Hour/230.13.224.M.5/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDL</flag>
+							<label>TCDL</label>
+							<color>#bfb1d0</color>
+							<parameter>elevation</parameter>
+							<top>848</top>
+							<bottom>800</bottom>
+							<gates>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_B/Gate Position 1//1Hour/230.13.224.B.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_B/Gate Position 2//1Hour/230.13.224.B.2/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_B/Gate Position 3//1Hour/230.13.224.B.3/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_B/Gate Position 4//1Hour/230.13.224.B.4/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_B/Gate Position 5//1Hour/230.13.224.B.5/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+							</gates>
+						</gateop>
+						<gateop>
+							<flag>TCDS</flag>
+							<label>TCDS</label>
+							<color>#f1b584</color>
+							<parameter>elevation</parameter>
+							<middle>720</middle>
+							<gates>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_S/Gate Position 1//1Hour/230.13.224.S.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+								<gate>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_S/Gate Position 2//1Hour/230.13.224.S.2/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+								</gate>
+							</gates>
+						</gateop>
+					</gateops>
+				</Object>
+				<Object>
+					<Type>ProfileStatisticsTable</Type>
+					<Template>format/templates/ProfileStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+<!--<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>						-->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>							
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>	<!--Text file input, so specify units-->							
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>								
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>0.75</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+						<threshold>
+							<value>-0.75</value>
+							<colorwhen>under</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Shasta Lake near dam temperature profiles, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>1.0</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake near dam temperature profiles, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). ResSim.</Description>
+					<unitsystem>english</unitsystem>					
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>1.5</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>		-->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticProfileTable</Type>
+					<Template>format/templates/SingleStatisticProfileTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Description>Shasta Lake near dam temperature profiles, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>0.65</value>
+							<colorwhen>under</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<ResSimResName>Shasta Lake</ResSimResName>
+						</DataPath>
+						<DataPath>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+							<FileName>%%observedDir%%\shasta_profs_watercourse_all.txt</FileName>
+							<units>c</units>						<!--Text file input, so specify units-->
+							<wse>
+								<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+								<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							</wse>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+<!--This section bounds will need to be updated manually if the base range changes; did not use the templates-->
+<!--Current settings: TW: 30-80, Q: 0-20,000, EL: 700-1100-->
+<!--Elevation lower limit is 700 for this figure, but 800 for other elevation plots because of the lowest gate height of 800.-->			
+			<Section>
+				<Header>Shasta Lake Outflow Temperature, Flow, Elevation, and Gates</Header>
+
+
+				<Object>
+					<Type>textbox</Type>
+					<Text>This composite figure includes all aspects of Shasta Dam outflow in four panels. 
+
+The uppermost panel illustrates simulated dam outflow  temperature throughout the calendar year. Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. 
+
+The second panel includes flow (cfs) through each modeled gate level and side gate structure through time. Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis.  These figures show the gate progression through the spring, summer and fall to manage water temperature releases to meet downstream objectives. 
+
+The third panel includes the historical gate use and side gate structure through time. Time (date) is represented on the x-axis and elevation (by TCD gate) is represented on the y-axis.  Each gate level is represented as 5 horizontal bars - where each bar represents one of the 5 gates. These figures show the gate progression through the spring, summer and fall to manage water temperature releases to meet downstream objectives.
+
+The fourth panel includes a plot of simulated and observed Shasta Lake surface elevation (ft) through time, showing the general increase in storage in the spring and then declining elevations through summer and fall. The vertical extent of TCD Gate levels is shown on this panel. 
+
+A table of legend entries and abbreviations follows the figure describing the lines and symbols in the figure.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Shasta Lake outflow temperature, flows, elevation, and gates, %%year%%. ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<sharex>True</sharex>
+					<legend_outside>true</legend_outside>
+					<legendsize>9</legendsize>
+					<splitbyyear>true</splitbyyear>
+					<axs>
+						<ax>
+							<ylabel>Temperature (%%units%%)</ylabel>
+							<ylabel2>Flow Rate (%%units2%%)</ylabel2>
+							<twinx>True</twinx>
+							<legend2>true</legend2>
+							<!-- <Ylims>
+								<min>8</min>
+								<max>18</max>
+							</Ylims> -->
+							<Ylims2>
+								<min>0</min>
+							</Ylims2>
+							<Yticks>
+								<spacing>2</spacing>
+							</Yticks>
+							<Lines>
+								<Line>
+									<label>Simulated Daily</label>
+									<Flag>Modeled</Flag>
+									<Interval>1DAY</Interval>
+									<Type>PER-AVER</Type>
+									<yaxis>left</yaxis>
+									<Parameter>Temperature</Parameter>
+									<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<lineStylePattern>dash</lineStylePattern>
+									<linecolor>darkred</linecolor>
+									<lineWidth>2</lineWidth>
+									<zorder>5</zorder>
+								</Line>
+
+								<Line>
+									<label>Target Daily</label>
+									<Flag>Target</Flag>
+									<Interval>1DAY</Interval>
+									<Parameter>Temperature</Parameter>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+									<lineWidth>2</lineWidth>
+									<yaxis>left</yaxis>
+									<linecolor>orange</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<!--<Line>
+									<label>Penstocks</label>
+									<Flag>Penstocks</Flag>
+									<Parameter>Temperature</Parameter>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-PENSTOCKS//1Day/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineWidth>2</lineWidth>
+									<yaxis>left</yaxis>
+									<linecolor>lightgreen</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>Tailbay</label>
+									<Flag>Tailbay</Flag>
+									<Parameter>Temperature</Parameter>
+									<DSS_Path>/USBR/SHASTA/TEMP-WATER-TAILBAY//1Day/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<lineWidth>2</lineWidth>
+									<yaxis>left</yaxis>
+									<linecolor>#4C12A1</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>-->
+
+								<!-- Upper Gates -->
+								<Line>
+									<label>TCDU</label>
+									<Flag>L22</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L22/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>dodgerblue</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L21</label>
+									<Flag>L21</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L21/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>dodgerblue</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L20</label>
+									<Flag>L20</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L20/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>dodgerblue</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+
+
+								<!-- Middle Gates -->
+								<Line>
+									<label>TCDM</label>
+									<Flag>L17</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L17/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>red</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L16</label>
+									<Flag>L16</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L16/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>red</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L15</label>
+									<Flag>L15</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L15/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>red</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L19</label>
+									<Flag>L19</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L19/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>red</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+
+
+								<!-- Lower Gates -->
+								<Line>
+									<label>TCDL</label>
+									<Flag>L13</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L13/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lightgreen</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L11</label>
+									<Flag>L11</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L11/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lightgreen</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L9</label>
+									<Flag>L9</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L9/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lightgreen</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L7</label>
+									<Flag>L7</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L7/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lightgreen</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+
+								<!-- Side Gates -->
+								<Line>
+									<label>TCDS</label>
+									<Flag>L10</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L10/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lavender</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L6</label>
+									<Flag>L6</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L6/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lavender</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L4</label>
+									<Flag>L4</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L4/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lavender</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>L2</label>
+									<Flag>L2</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L2/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>lavender</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>TCDdwn</label>
+									<Flag>L1</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Power Plant-TCD-L1/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>darkred</linecolor>
+									<lineStylePattern>dotted</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+
+
+								<Line>
+									<label>Spill</label>
+									<Flag>Spill</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Outlet 1-Spill/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>red</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>RRU</label>
+									<Flag>RRU</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Outlet 14-RRU/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>orange</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>RRM</label>
+									<Flag>RRM</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Outlet 15-RRM/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>grey</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+								<Line>
+									<label>RRL</label>
+									<Flag>RRL</Flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<DSS_Path>//Shasta Lake-Outlet 16-RRL/Flow-DECISION//1Hour/%%Fpart%%/</DSS_Path>
+									<yaxis>right</yaxis>
+									<Parameter>Flow</Parameter>
+									<lineWidth>2</lineWidth>
+									<linecolor>cyan</linecolor>
+									<lineStylePattern>solid</lineStylePattern>
+									<zorder>4</zorder>
+								</Line>
+							</Lines>
+							<Mergelines>
+								<Mergeline>
+									<Flags>
+										<Flag>L22</Flag>
+										<Flag>L21</Flag>
+										<Flag>L20</Flag>
+									</Flags>
+									<Controller>L22</Controller> <!--Label, plot options for lines for this merge reside in L19-->
+									<Math>Add</Math>
+									<Keeplines>False</Keeplines>
+								</Mergeline>
+								<Mergeline>
+									<Flags>
+										<Flag>L17</Flag>
+										<Flag>L16</Flag>
+										<Flag>L15</Flag>
+										<Flag>L19</Flag>
+									</Flags>
+									<Controller>L17</Controller> 
+									<Math>Add</Math>
+									<Keeplines>False</Keeplines>
+								</Mergeline>
+								<Mergeline>
+									<Flags>
+										<Flag>L13</Flag>
+										<Flag>L11</Flag>
+										<Flag>L9</Flag>
+										<Flag>L7</Flag>
+									</Flags>
+									<Controller>L13</Controller> 
+									<Math>Add</Math>
+									<Keeplines>False</Keeplines>
+								</Mergeline>
+								<Mergeline>
+									<Flags>
+										<Flag>L10</Flag>
+										<Flag>L6</Flag>
+										<Flag>L4</Flag>
+										<Flag>L2</Flag>
+									</Flags>
+									<Controller>L10</Controller> 
+									<Math>Add</Math>
+									<Keeplines>False</Keeplines>
+								</Mergeline>
+							</Mergelines>
+						</ax>
+						<ax>
+							<ylabel>Active TCD Gates</ylabel>
+							<yticksize>8</yticksize>
+							<gatespacing>5</gatespacing>
+							<weight>.8</weight>
+							<operationlines>
+								<linecolor>grey</linecolor>
+								<alpha>.6</alpha>
+								<linewidth>1</linewidth>
+								<linestylepattern>dashed</linestylepattern>
+								<allaxis>True</allaxis>
+							</operationlines>
+							<gateops>
+								<gateop>
+									<label>TCDU</label>
+									<flag>TCDU</flag>
+									<gates>
+										<gate>
+											<label>U1</label>
+											<flag>U1</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_T/Gate Position 1//1Hour/230.13.224.T.1/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>darkblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U2</label>
+											<flag>U2</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_T/Gate Position 2//1Hour/230.13.224.T.2/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>blue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U3</label>
+											<flag>U3</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_T/Gate Position 3//1Hour/230.13.224.T.3/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>royalblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U4</label>
+											<flag>U4</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_T/Gate Position 4//1Hour/230.13.224.T.4/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>cornflowerblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>U5</label>
+											<flag>U5</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_T/Gate Position 5//1Hour/230.13.224.T.5/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>lightsteelblue</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDM</label>
+									<flag>TCDM</flag>
+									<gates>
+										<gate>
+											<label>M1</label>
+											<flag>M1</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_M/Gate Position 1//1Hour/230.13.224.M.1/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>darkorange</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M2</label>
+											<flag>M2</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_M/Gate Position 2//1Hour/230.13.224.M.2/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>orange</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M3</label>
+											<flag>M3</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_M/Gate Position 3//1Hour/230.13.224.M.3/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>gold</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M4</label>
+											<flag>M4</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_M/Gate Position 4//1Hour/230.13.224.M.4/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>yellow</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>M5</label>
+											<flag>M5</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_M/Gate Position 5//1Hour/230.13.224.M.5/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>palegoldenrod</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDL</label>
+									<flag>TCDL</flag>
+									<gates>
+										<gate>
+										<label>L1</label>
+										<flag>L1</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_B/Gate Position 1//1Hour/230.13.224.B.1/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+										<linecolor>darkgreen</linecolor>
+										<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L2</label>
+											<flag>L2</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_B/Gate Position 2//1Hour/230.13.224.B.2/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>forestgreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L3</label>
+											<flag>L3</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 3_B/Gate Position 3//1Hour/230.13.224.B.3/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>green</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L4</label>
+											<flag>L4</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 4_B/Gate Position 4//1Hour/230.13.224.B.4/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>limegreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>L5</label>
+											<flag>L5</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 5_B/Gate Position 5//1Hour/230.13.224.B.5/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>lightgreen</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+								<gateop>
+									<label>TCDS</label>
+									<flag>TCDS</flag>
+									<gates>
+										<gate>
+											<label>S1</label>
+											<flag>S1</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 1_S/Gate Position 1//1Hour/230.13.224.S.1/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>purple</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+										<gate>
+											<label>S2</label>
+											<flag>S2</flag>
+											<DSS_Path>/MR Sac.-Shasta Lake/SHA-TCD-Gate Position 2_S/Gate Position 2//1Hour/230.13.224.S.2/</DSS_Path>
+											<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+											<linecolor>violet</linecolor>
+											<linewidth>4</linewidth>
+										</gate>
+									</gates>
+								</gateop>
+							</gateops>
+						</ax>
+						<ax>
+							<ylabel2>Penstock Q\n(relative %)</ylabel2>
+							<ylabelsize2>10</ylabelsize2>
+							<weight>.2</weight>
+							<relative>True</relative>
+							<ylims2>
+								<max>1</max>
+								<min>0</min>
+							</ylims2>
+							<twinx>True</twinx>
+							<lines>
+								<line>
+									<label>Total Pen. Flow</label>
+									<flag>Total Pen.</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Generation Release/Flow//1Hour/230.11.125.3.1/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>dark blue</pointfillcolor>
+									<pointlinecolor>dark blue</pointlinecolor>
+								</line>
+								<!--<line>
+									<label>Pen.1</label>
+									<flag>Pen.1</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/SHASTA_PG1/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>dark blue</pointfillcolor>
+									<pointlinecolor>dark blue</pointlinecolor>
+								</line>
+								<line>
+									<label>Pen.2</label>
+									<flag>Pen.2</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/SHASTA_PG2/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>dark orange</pointfillcolor>
+									<pointlinecolor>dark orange</pointlinecolor>
+								</line>
+								<line>
+									<label>Pen.3</label>
+									<flag>Pen.3</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/SHASTA_PG3/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>lightgreen</pointfillcolor>
+									<pointlinecolor>lightgreen</pointlinecolor>
+								</line>
+								<line>
+									<label>Pen.4</label>
+									<flag>Pen.4</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/SHASTA_PG4/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>lavender</pointfillcolor>
+									<pointlinecolor>lavender</pointlinecolor>
+								</line>
+								<line>
+									<label>Pen.5</label>
+									<flag>Pen.5</flag>
+									<yaxis>right</yaxis>
+									<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+									<DSS_Path>/USBR/SHASTA_PG5/FLOW//1HOUR/USBR_BLESSED/</DSS_Path>
+									<Interval>1HOUR</Interval>
+									<symboltype>o</symboltype>
+									<symbolsize>1</symbolsize>
+									<pointfillcolor>cyan</pointfillcolor>
+									<pointlinecolor>cyan</pointlinecolor>
+								</line>-->
+							</lines>
+						</ax>
+						<ax>
+							<ylabel>Elevation, %%units%%</ylabel>
+							<weight>0.6</weight>
+							<unitsystem>english</unitsystem>
+							<xlabel>Date</xlabel>
+							<ylims>
+								<max>1100</max>
+							</ylims>
+							<hlines>
+								<hline>
+									<label>TCDUupp</label>
+									<value>1048</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDUlow</label>
+									<value>1000</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDMupp</label>
+									<value>948</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDMlow</label>
+									<value>900</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDLupp</label>
+									<value>840</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDLlow</label>
+									<value>800</value>
+									<linecolor>red</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hline>
+							</hlines>
+							<lines>
+								<line>
+									<label>WSE</label>
+									<flag>WSComp</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<linecolor>blue</linecolor>
+								</line>
+							</lines>
+						</ax>
+					</axs>
+				</Object>
+				<Object>					
+					<type>textbox</type>					
+					<text>%%b%%Legend Key%%/b%%
+TCDU = Temperature Control Device - Upper
+TCDM = Temperature Control Device - Middle
+TCDL = Temperature Control Device - Lower
+TCDS = Temperature Control Device - Side
+TCDdwn = Temperature Control Device - Low-Level Intake
+RRU = River Release, Upper Outlets  
+RRM = River Release, Middle Outlets  
+RRL = River Release, Lower Outlets  
+U1 = Temperature Control Device - Upper 1
+U2 = Temperature Control Device - Upper 2
+U3 = Temperature Control Device - Upper 3
+U4 = Temperature Control Device - Upper 4
+U5 = Temperature Control Device - Upper 5
+M1 = Temperature Control Device - Middle 1
+M2 = Temperature Control Device - Middle 2
+M3 = Temperature Control Device - Middle 3
+M4 = Temperature Control Device - Middle 4
+M5 = Temperature Control Device - Middle 5
+L1 = Temperature Control Device - Lower 1
+L2 = Temperature Control Device - Lower 2
+L3 = Temperature Control Device - Lower 3
+L4 = Temperature Control Device - Lower 4
+L5 = Temperature Control Device - Lower 5
+S1 = Temperature Control Device - Side 1
+S2 = Temperature Control Device - Side 2
+TCDUupp = Temperature Control Device - Upper, Top Elevation
+TCDUlow = Temperature Control Device - Upper, Bottom Elevation
+TCDMupp = Temperature Control Device - Middle, Top Elevation
+TCDMlow = Temperature Control Device - Middle, Bottom Elevation
+TCDLupp = Temperature Control Device - Lower, Top Elevation
+TCDLlow = Temperature Control Device - Lower, Bottom Elevation</text>
+				</Object>				
+			</Section>
+			<Section>
+				<Header>Shasta Lake Outflow Temperature</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow temperature figures compare simulated and observed temperature time series from January through December to aid calibration.  Time (date) is represented on the x-axis and temperature (%%degrees%%F) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average water temperature. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods. </Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>Shasta Lake Outflow Temperature %%year%%</Title>
+					<Description>Shasta Lake hourly outflow temperature, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_TW.xml</Template>
+					<unitsystem>english</unitsystem>
+					<ylabel>Temperature (%%units%%)</ylabel>
+					<xlabel>Date</xlabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears><!--Phase1-->
+					<yearblocks>10</yearblocks>
+					<yticks>
+						<spacing>2</spacing>
+					</yticks>
+					<Lines>
+						<Line>
+							<label>Outflow Target</label>
+							<Flag>Observed</Flag>
+							<Parameter>Target</Parameter>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+							<alpha>0.3</alpha>
+							<omitvalue>-901.0</omitvalue>
+						</Line>
+						<Line>
+							<label>Outflow Target Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Target</Parameter>
+							<Type>PER-AVER</Type>
+							<Interval>1DAY</Interval>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>7</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</Line>
+						<!--<Line>
+							<label>Observed Penstock Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Target</Parameter>
+							<Interval>1DAY</Interval>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-PENSTOCKS//1DAY/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#215732</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</Line>
+						<Line>
+							<label>Observed Tailbay Daily</label>
+							<Flag>Observed</Flag>
+							<Parameter>Target</Parameter>
+							<Interval>1DAY</Interval>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-Tailbay//1DAY/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<lineColor>#4C12A1</lineColor>
+							<lineWidth>1</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>8</zorder>
+							<omitvalue>-901.0</omitvalue>
+						</Line>-->
+						<Line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColor>red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>5</zorder>
+							<alpha>0.4</alpha>
+						</Line>
+						<Line>
+							<label>Simulated Daily</label>
+							<Flag>Computed</Flag>
+							<Interval>1DAY</Interval>
+							<Type>PER-AVER</Type>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColor>red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>1</lineWidth>
+							<zorder>9</zorder>
+						</Line>			
+					</Lines>
+				</Object>
+
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly outflow temperature, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 1.35%%units%%, MAE: %%gt%%1.80%%units%%, RMSE: %%gt%%2.70%%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+<!--					<tablecolors>
+						<tablecolor>
+							<statistic>meanbias</statistic>
+							<thresholds>
+								<threshold>
+									<value>0.75</value>
+									<colorwhen>over</colorwhen>
+								</threshold>
+								<threshold>
+									<value>-0.75</value>
+									<colorwhen>under</colorwhen>
+								</threshold>
+							</thresholds>
+						</tablecolor>
+						<tablecolor>
+							<statistic>nse</statistic>
+							<thresholds>
+								<threshold>
+									<value>0.65</value>
+									<colorwhen>under</colorwhen>
+								</threshold>
+							</thresholds>
+						</tablecolor>
+						<tablecolor>
+							<statistic>MAE</statistic>
+							<thresholds>
+								<threshold>
+									<value>1.0</value>
+									<colorwhen>over</colorwhen>
+								</threshold>
+							</thresholds>
+						</tablecolor>
+						<tablecolor>
+							<statistic>RMSE</statistic>
+							<thresholds>
+								<threshold>
+									<value>1.5</value>
+									<colorwhen>over</colorwhen>
+								</threshold>
+							</thresholds>
+						</tablecolor>
+					</tablecolors>		
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<Parameter>Temperature</Parameter>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Parameter>Temperature</Parameter>
+							<omitvalue>-146.2</omitvalue>
+							<skiprows>3</skiprows>
+							<W2_File>TWO_77.OPT</W2_File>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Parameter>Temperature</Parameter>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>	
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 1.35%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MeanBias.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>0.75</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+						<threshold>
+							<value>-0.75</value>
+							<colorwhen>under</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow temperature, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.80%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>1.0</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly outflow temperature, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%2.70%%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_RMSE.xml</Template>					
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>1.5</value>
+							<colorwhen>over</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_TW_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly outflow temperature, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Temperature</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+<!--					<thresholds>
+						<threshold>
+							<value>.65</value>
+							<colorwhen>under</colorwhen>
+						</threshold>
+					</thresholds>
+					<numberformats>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<flag>Computed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//Shasta Lake-Power Plant/Temp-Water Temperature//1Hour/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<flag>Observed</flag>
+							<Parameter>Temperature</Parameter>
+							<Interval>1HOUR</Interval>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Outflow WTemp/Temp-Water//1Hour/230.11.50.1.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Shasta Lake Outflow</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir outflow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average outflow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%%</Title>
+					<Description>Shasta Lake hourly outflow, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_Q.xml</Template>
+					<unitsystem>english</unitsystem>																
+					<ylabel>Flow (%%units%%)</ylabel>
+					<xlabel>Date</xlabel>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears><!--Phase1-->
+					<yearblocks>10</yearblocks>					
+					<ylims>
+						<min>0</min>
+					</ylims>
+					<lines>
+						<line>
+							<label>Simulated</label>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<lineColor>red</lineColor>
+							<lineStylePattern>dashed</lineStylePattern>
+							<lineWidth>2</lineWidth>
+							<zorder>7</zorder>
+						</line>
+						<line>
+							<label>Observed</label>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<lineColor>#5b9bd5</lineColor>
+							<lineWidth>2</lineWidth>
+							<lineStylePattern>solid</lineStylePattern>
+							<zorder>4</zorder>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 150 %%units%%, MAE: %%gt%%300 %%units%%, RMSE: %%gt%%500 %%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_Q.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+<!--					<numberformats>
+						<numberformat>
+							<min>100</min>
+							<decimalplaces>0</decimalplaces>
+							<stats>
+								<stat>meanbias</stat>
+								<stat>MAE</stat>
+								<stat>RMSE</stat>
+							</stats>
+						</numberformat>
+						<numberformat>
+							<max>100</max>
+							<decimalplaces>1</decimalplaces>
+							<stats>
+								<stat>meanbias</stat>
+								<stat>MAE</stat>
+								<stat>RMSE</stat>
+							</stats>
+						</numberformat>
+						<numberformat>
+							<min>1</min>
+							<decimalplaces>1</decimalplaces>
+							<stats>
+								<stat>NSE</stat>
+							</stats>
+						</numberformat>
+						<numberformat>
+							<max>1</max>
+							<decimalplaces>2</decimalplaces>
+							<stats>
+								<stat>NSE</stat>
+							</stats>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_TW.xml</Template>
+					<Parameter>Flow</Parameter>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>					
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-146.2</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>	
+				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 150 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MeanBias.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>flow</Parameter>
+					<statistic>meanbias</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+<!--					<numberformats>
+						<numberformat>
+							<min>100</min>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>100</max>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%300 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_MAE.xml</Template>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>flow</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+<!--					<numberformats>
+						<numberformat>
+							<min>100</min>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>100</max>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_RMSE.xml</Template>
+					<Description>Shasta Lake hourly outflow, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%500 %%units%%). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>flow</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+<!--					<numberformats>
+						<numberformat>
+							<min>100</min>
+							<decimalplaces>0</decimalplaces>
+						</numberformat>
+						<numberformat>
+							<max>100</max>
+							<decimalplaces>1</decimalplaces>
+						</numberformat>
+					</numberformats>	-->
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly outflow, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_Q_NSE.xml</Template>			
+					<unitsystem>english</unitsystem>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>					
+					<Parameter>flow</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>true</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<DataPaths>
+						<DataPath>
+							<Flag>Computed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>//SHASTA OUT/FLOW//1HOUR/%%Fpart%%/</DSS_Path>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+						</DataPath>
+						<DataPath>
+							<Flag>Observed</Flag>
+							<Interval>1HOUR</Interval>
+							<Type>PER-AVER</Type>
+							<DSS_Path>/MR SAC.-SHASTA LAKE/SHA-TOTAL DAM OUTFLOW/FLOW//1HOUR/RESSIM_PREPROCESS/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<omitvalue>-901.0</omitvalue>
+						</DataPath>
+					</DataPaths>
+				</Object>
+			</Section>
+			<Section>
+				<Header>Shasta Lake Elevation</Header>
+				<Object>
+					<Type>textbox</Type>
+					<Text>Reservoir elevation figures compare simulated and observed elevation time series from January through December to aid calibration.  Time (date) is represented on the x-axis and elevation (ft) is represented on the y-axis. Four lines are included in the figure: observed (light blue) and simulated (red-dashed) hourly water temperature and observed (dark blue) and simulated (dark red dashed) daily average elevation. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
+				</Object>
+				<Object>
+					<Type>TimeSeriesPlot</Type>
+					<Title>%%region%%, Simulation: %%SimulationName%% %%year%%</Title>
+					<Description>Shasta Lake hourly elevation, %%year%%. ResSim.</Description>
+					<Template>format/templates/Plot_Defaults_SHA_EL.xml</Template>
+					<unitsystem>english</unitsystem>
+					<xlabel>Date</xlabel>
+					<legend_outside>false</legend_outside>
+					<legendsize>9</legendsize>
+					<splitbyyear>False</splitbyyear>
+<!--					<ylims>
+						<min>750</min>
+						<max>1100</max>
+					</ylims>	-->
+					<axs>
+						<ax>
+							<ylabel>Elevation (%%units%%)</ylabel>
+							<weight>0.6</weight>
+							<unitsystem>english</unitsystem>
+							<hlines>
+								<hline>
+									<label>TCDUupp</label>
+									<value>1048</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDUlow</label>
+									<value>1000</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>solid</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDMupp</label>
+									<value>948</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDMlow</label>
+									<value>900</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dotted</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDLupp</label>
+									<value>840</value>
+									<linecolor>black</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hline>
+								<hline>
+									<label>TCDLlow</label>
+									<value>800</value>
+									<linecolor>red</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</hline>
+							</hlines>
+							<lines>
+								<line>
+									<label>Observed</label>
+									<flag>Observed</flag>
+									<parameter>elevation</parameter>
+									<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+									<linecolor>#5b9bd5</linecolor>
+								</line>
+								<line>
+									<label>Simulated</label>
+									<flag>Simulated</flag>
+									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+									<parameter>elevation</parameter>
+									<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>
+									<linecolor>red</linecolor>
+									<linestylepattern>dashed</linestylepattern>
+								</line>
+							</lines>
+						</ax>
+					</axs>
+				</Object>
+				<Object>
+					<Type>ErrorStatisticsTable</Type>
+					<Template>format/templates/ErrorStatisticsTable_Defaults_TW.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Description>Shasta Lake hourly elevation, annual performance statistics, shaded gray cells with an asterisk are outside the model performance metric range (Mean Bias: +/- 0.50 %%units%%, MAE: %%gt%%1.00 %%units%%, RMSE: %%gt%%1.50 %%units%%, NSE: %%lt%%0.65). ResSim.</Description>
+					<unitsystem>english</unitsystem>
+					<Parameter>Elevation</Parameter>
+					<SplitByYear>True</SplitByYear>
+					<includeallyears>True</includeallyears>					
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Simulated</flag>							
+							<parameter>elevation</parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>							
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>MonthlyStatisticsTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly means (%%units%%) and counts. ResSim.</Description>
+					<Template>format/templates/MonthlyStatisticsTable_EL.xml</Template>
+					<Parameter>Elevation</Parameter>
+					<unitsystem>english</unitsystem>
+					<includeallyears>True</includeallyears>
+					<SplitByYear>True</SplitByYear>
+					<unitsystem>english</unitsystem>
+					<Rows>
+						<Row>Jan|%%MEAN.Observed.MONTH=JAN%%|%%MEAN.Computed.MONTH=JAN%%|%%COUNT.Observed.MONTH=JAN%%|%%COUNT.Computed.MONTH=JAN%%</Row>
+						<Row>Feb|%%MEAN.Observed.MONTH=FEB%%|%%MEAN.Computed.MONTH=FEB%%|%%COUNT.Observed.MONTH=FEB%%|%%COUNT.Computed.MONTH=FEB%%</Row>
+						<Row>Mar|%%MEAN.Observed.MONTH=MAR%%|%%MEAN.Computed.MONTH=MAR%%|%%COUNT.Observed.MONTH=MAR%%|%%COUNT.Computed.MONTH=MAR%%</Row>
+						<Row>Apr|%%MEAN.Observed.MONTH=APR%%|%%MEAN.Computed.MONTH=APR%%|%%COUNT.Observed.MONTH=APR%%|%%COUNT.Computed.MONTH=APR%%</Row>
+						<Row>May|%%MEAN.Observed.MONTH=MAY%%|%%MEAN.Computed.MONTH=MAY%%|%%COUNT.Observed.MONTH=MAY%%|%%COUNT.Computed.MONTH=MAY%%</Row>
+						<Row>Jun|%%MEAN.Observed.MONTH=JUN%%|%%MEAN.Computed.MONTH=JUN%%|%%COUNT.Observed.MONTH=JUN%%|%%COUNT.Computed.MONTH=JUN%%</Row>
+						<Row>Jul|%%MEAN.Observed.MONTH=JUL%%|%%MEAN.Computed.MONTH=JUL%%|%%COUNT.Observed.MONTH=JUL%%|%%COUNT.Computed.MONTH=JUL%%</Row>
+						<Row>Aug|%%MEAN.Observed.MONTH=AUG%%|%%MEAN.Computed.MONTH=AUG%%|%%COUNT.Observed.MONTH=AUG%%|%%COUNT.Computed.MONTH=AUG%%</Row>
+						<Row>Sep|%%MEAN.Observed.MONTH=SEP%%|%%MEAN.Computed.MONTH=SEP%%|%%COUNT.Observed.MONTH=SEP%%|%%COUNT.Computed.MONTH=SEP%%</Row>
+						<Row>Oct|%%MEAN.Observed.MONTH=OCT%%|%%MEAN.Computed.MONTH=OCT%%|%%COUNT.Observed.MONTH=OCT%%|%%COUNT.Computed.MONTH=OCT%%</Row>
+						<Row>Nov|%%MEAN.Observed.MONTH=NOV%%|%%MEAN.Computed.MONTH=NOV%%|%%COUNT.Observed.MONTH=NOV%%|%%COUNT.Computed.MONTH=NOV%%</Row>
+						<Row>Dec|%%MEAN.Observed.MONTH=DEC%%|%%MEAN.Computed.MONTH=DEC%%|%%COUNT.Observed.MONTH=DEC%%|%%COUNT.Computed.MONTH=DEC%%</Row>
+					</Rows>
+					<Headers>
+						<Header>Obs. Mean %%year%%</Header>
+						<Header>Sim. Mean %%year%%</Header>
+						<Header>Obs. Count %%year%%</Header>
+						<Header>Sim. Count %%year%%</Header>
+					</Headers>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Simulated</flag>							
+							<parameter>elevation</parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>							
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MeanBias.xml</Template>
+					<Description>Shasta Lake hourly elevation, monthly average mean bias (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (+/- 0.50 %%units%%). ResSim.</Description>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>elevation</Parameter>
+					<statistic>meanbias</statistic>
+					<splitbyyear>true</splitbyyear>
+					<includeallyears>True</includeallyears>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>	
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>				
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average MAE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.00 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_MAE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>MAE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>			
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>	
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average RMSE (%%units%%), shaded gray cells with an asterisk are outside the model performance metric range (%%gt%%1.50 %%units%%). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_RMSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>RMSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>			
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>	
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>
+				<Object>
+					<Type>SingleStatisticTable</Type>
+					<Description>Shasta Lake hourly elevation, monthly average NSE, shaded gray cells with an asterisk are outside the model performance metric range (%%lt%%0.65). ResSim.</Description>
+					<Template>format/templates/SingleStatisticTable_Defaults_EL_NSE.xml</Template>
+					<missingmarker>--</missingmarker>
+					<addasterisk>True</addasterisk>
+					<Parameter>Elevation</Parameter>
+					<statistic>NSE</statistic>
+					<includeallyears>True</includeallyears>
+					<splitbyyear>true</splitbyyear>
+					<unitsystem>english</unitsystem>
+					<Datapaths>
+						<Datapath>
+							<label>Simulated</label>
+							<flag>Computed</flag>			
+							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
+							<parameter>elevation</parameter>
+							<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>	
+							<units>m</units>
+						</Datapath>
+						<Datapath>
+							<label>Observed</label>
+							<flag>Observed</flag>
+							<parameter>elevation</parameter>
+							<DSS_Path>/MR Sac.-Shasta Lake/SHA-Elevation/Elev//1Hour/230.11.145.2.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+						</Datapath>
+					</Datapaths>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

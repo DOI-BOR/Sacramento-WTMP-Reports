@@ -76,6 +76,14 @@
 							<interval>1DAY</interval>
 							<coloreach>true</coloreach>
 						</line>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
 					</lines>
 				</Object>
 				<!-- <Object> -->

@@ -4,6 +4,13 @@
 		<debug>true</debug>
 		<Sections>
 			<Section>
+				<header>Iteration Summary</header>
+				<Object>
+					<type>forecasttable</type>
+					<Description>Iteration run information</Description>
+				</Object>
+			</Section>
+			<Section>
 				<header>Shasta</header>
 				<Object>
 					<type>timeseriesplot</type>
@@ -66,6 +73,14 @@
 							<label>%%member%%</label>
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<coloreach>true</coloreach>
+						</line>
+						<line>
+							<flag>computed</flag>
+							<label>%%member%%</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
 							<coloreach>true</coloreach>
 						</line>
