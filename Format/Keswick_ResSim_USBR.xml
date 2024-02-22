@@ -676,8 +676,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>2</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -706,8 +706,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -759,8 +759,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Parameter>flow</Parameter>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -789,8 +789,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -818,8 +818,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -876,8 +876,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/KESWICK_QOUT_SUM/FLOW//1HOUR/USBR_DERIVED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Dam Total Release/Flow//1Day/234.1.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -908,9 +908,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 								<line>
 									<label>Observed</label>
 									<flag>WSComp</flag>
-									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 									<parameter>elevation</parameter>
-									<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+									<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 									<linecolor>#5b9bd5</linecolor>
 									<omitvalue>-901.0</omitvalue>
 								</line>
@@ -965,9 +965,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1011,9 +1011,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1039,9 +1039,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1067,9 +1067,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1095,9 +1095,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1123,9 +1123,9 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<label>Observed</label>
 							<flag>Observed</flag>
-							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<parameter>elevation</parameter>
-							<DSS_Path>/USBR/KESWICK/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./KES-Reservoir Elevation/Elev//1Hour/234.1.145.1.1/</DSS_Path>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>

@@ -1,0 +1,29 @@
+<Chapters>
+	<Chapter>
+		<Name>Study Summary</Name>
+		<Sections>
+			<Section>
+				<Object>
+					<type>TextBox</type>
+					<text>%%b%%Study%%/b%%: %%studyname%%\n%%description.study%%</text>
+				</Object>
+				<Object>
+					<type>TextBox</type>
+					<text>%%b%%Simulation Group%%/b%%: %%simulationgroup%%\n%%description.simulationgroup%%</text>
+				</Object>
+				<Object>
+					<type>TextBox</type>
+					<text>%%b%%WatAlternative%%/b%%: %%watalternative%%\n%%description.WatAlternative%%</text>
+				</Object>
+				<Object>
+					<type>TextBox</type>
+					<text>%%b%%Analysis Period%%/b%%: %%analysisperiod%% (%%starttime%% - %%endtime%%)\n%%description.analysisperiod%%</text>
+				</Object>
+				<Object>
+					<type>TextBox</type>
+					<text>%%b%%Model Alternative%%/b%%: %%modelAltName%%\n%%description.modelalternative%%</text>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

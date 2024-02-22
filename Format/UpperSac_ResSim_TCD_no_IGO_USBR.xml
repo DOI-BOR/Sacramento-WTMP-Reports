@@ -27,7 +27,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
@@ -41,7 +41,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
@@ -113,7 +113,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -162,7 +162,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -194,7 +194,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -225,7 +225,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -287,7 +287,7 @@
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/ABV CLEAR CREEK(CCR)/TEMP//1HOUR/TEMPERATURE-MERGED/</DSS_Path>
+							<DSS_Path>//CCR/TEMPERATURE-WATER//IR-MONTH/CDEC-EDIT-MERGED/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -1202,8 +1202,8 @@
 						<line>
 							<label>Observed</label>
 							<Flag>Observed</Flag>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>2</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1236,8 +1236,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1289,8 +1289,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1322,8 +1322,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1354,8 +1354,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1386,8 +1386,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1418,8 +1418,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO/BEND BRIDGE(BND)/FLOW//1DAY/MERGE-INTERP-1D-SHIFT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>

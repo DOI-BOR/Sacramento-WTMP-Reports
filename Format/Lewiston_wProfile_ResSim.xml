@@ -580,8 +580,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<line>
 							<label>Observed</label>
 							<Flag>Observed</Flag>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<linecolor>#5b9bd5</linecolor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -593,8 +593,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<label>Observed Daily</label>
 							<Flag>Observed Daily</Flag>
 							<Interval>1DAY</Interval>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<linecolor>#5b9bd5</linecolor>
 							<lineWidth>2</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -608,7 +608,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>							
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<lineColors>
 								<linecolor>red</linecolor>
 								<linecolor>green</linecolor>
@@ -627,7 +627,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<lineColors>
 								<linecolor>red</linecolor>
 								<linecolor>green</linecolor>
@@ -657,7 +657,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -665,8 +665,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -706,7 +706,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -714,8 +714,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -738,7 +738,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -746,8 +746,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -769,7 +769,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -777,8 +777,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -800,7 +800,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -808,8 +808,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -831,7 +831,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//LEWISTONTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -839,8 +839,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/JCR_GENERATION_RELEASE/TEMP-WATER//1HOUR/GRAB2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/JCR-Temperature_1/Temp-Water//1Hour/233.13.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						

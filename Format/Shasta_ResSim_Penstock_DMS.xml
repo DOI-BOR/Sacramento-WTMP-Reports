@@ -1141,7 +1141,7 @@ A table of legend entries and abbreviations follows the figure describing the li
 									<flag>WSComp</flag>
 									<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 									<parameter>elevation</parameter>
-									<DSS_Path>/USBR/SHASTA/ELEVATION//1Hour/USBR_BLESSED/</DSS_Path>
+									<DSS_Path>//Shasta Lake-Pool/Elev//1Hour/%%Fpart%%/</DSS_Path>	
 									<linecolor>blue</linecolor>
 								</line>
 							</lines>

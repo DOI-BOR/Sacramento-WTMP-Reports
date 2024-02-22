@@ -270,8 +270,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>INST-VAL</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -285,8 +285,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>INST-VAL</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -299,7 +299,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<lineColors>
 								<linecolor>red</linecolor>
@@ -318,7 +318,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<lineColors>
 								<linecolor>red</linecolor>
@@ -357,8 +357,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -398,7 +398,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -406,8 +406,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -430,7 +430,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -438,8 +438,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -461,7 +461,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -469,8 +469,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -492,7 +492,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -500,8 +500,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -523,7 +523,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/POSTPROCESSED/</DSS_Path>
+							<DSS_Path>//WHISKEYTOWNTUNNEL_WITH_HEATING/TEMP-WATER//1HOUR/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0</omitvalue>
 						</DataPath>
@@ -531,8 +531,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/SPRING_CREEK_SPP/TEMP-WATER//1HOUR/USBR_BLESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Keswick Res./SPP-Power House WTemp/Temp-Water//1Hour/234.4.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -562,8 +562,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -576,8 +576,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -644,8 +644,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -693,8 +693,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -725,8 +725,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -756,8 +756,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -787,8 +787,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -818,8 +818,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/USBR/WHI DAM OUTFLOW/TEMP-WATER//1HOUR/GRAB2PROCESSED/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./RM18.3-Whiskeytown-Water Temp/Temp-Water//30Minute/235.54.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -880,13 +880,13 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<zorder>9</zorder>
 						</Line>
 						<Line>
-							<label>Observed Daily</label>
+							<label>Observed</label>
 							<Flag>Observed</Flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -899,8 +899,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
 							<Parameter>flow</Parameter>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -932,8 +932,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -985,8 +985,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1018,8 +1018,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1050,8 +1050,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1082,8 +1082,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1114,8 +1114,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//WHI_OUTLET_MANUFACTURED_PLUS_SPILL/FLOW//1HOUR/OUTLET_OR_IGO-10/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Total Dam Outflow/Flow//1Hour/ResSim_PreProcess/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1384,8 +1384,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1398,8 +1398,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1466,8 +1466,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -1515,8 +1515,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -1547,8 +1547,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1578,8 +1578,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -1609,8 +1609,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -1640,8 +1640,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Flag>Observed</Flag>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/CLEAR CREEK/DS WHISKEYTOWN DAM(IGO)/TEMP-WATER//1HOUR/EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./IGO-Hourly WTemp/Temp-Water//1Hour/235.18.50.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>						
@@ -1705,8 +1705,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
 							<Parameter>flow</Parameter>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1738,8 +1738,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1791,8 +1791,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1824,8 +1824,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1856,8 +1856,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1888,8 +1888,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1920,8 +1920,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//IGO/FLOW//1DAY/CDEC-EDIT/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Clear Cr. to Sac R./11372000 Clear Creek nr Igo-Flow/Flow//15Minute/235.19.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrn_CalVal.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>

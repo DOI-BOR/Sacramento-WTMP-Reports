@@ -530,7 +530,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
 							<Parameter>flow</Parameter>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<linecolor>#5b9bd5</linecolor>
 							<lineWidth>1</lineWidth>
@@ -545,7 +545,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
 							<Parameter>flow</Parameter>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<linecolor>#5b9bd5</linecolor>
 							<lineWidth>1</lineWidth>
@@ -609,7 +609,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -660,7 +660,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 						</DataPath>
 					</DataPaths>
@@ -690,7 +690,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -721,7 +721,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -752,7 +752,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
@@ -783,7 +783,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<flag>Observed</flag>
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
-							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/226-231.5.125.4.1/</DSS_Path>
+							<DSS_Path>/MR Sac.-Trinity Lake/TRN-Total Release/Flow//1Hour/231.5.125.4.1/</DSS_Path>
 							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
