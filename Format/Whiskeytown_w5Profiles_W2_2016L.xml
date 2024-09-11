@@ -1217,7 +1217,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>											
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>							
 							<linecolor>red</linecolor>
 							<lineStylePattern>dashed</lineStylePattern>
@@ -1232,7 +1232,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>							
 							<linecolor>red</linecolor>
 							<lineStylePattern>dashed</lineStylePattern>
@@ -1256,7 +1256,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<Flag>Computed</Flag>
 							<Parameter>Temperature</Parameter>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</DataPath>
@@ -1309,7 +1309,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<label>Simulated</label>
 							<flag>Computed</flag>
 							<Parameter>Temperature</Parameter>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</Datapath>
@@ -1330,7 +1330,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 						<DataPath>
 							<Flag>Computed</Flag>
 							<Parameter>Temperature</Parameter>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</DataPath>
@@ -1359,7 +1359,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>INST-VAL</Type>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</DataPath>
@@ -1390,7 +1390,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>INST-VAL</Type>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</DataPath>
@@ -1421,7 +1421,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>Temperature</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>INST-VAL</Type>
-							<DSS_Path>//SPRINGCREEK_HEATED/TEMP//1HOUR/WHISKEYTOW:2016:SCRIPTING-SPRINGCREEKTUNNELHEATI/</DSS_Path>
+							<DSS_Path>//SpringCreek_Heated/Temp/*/1Hour/%%Fpart%%/</DSS_Path>
 							<DSS_Filename>%%ModelDSS%%</DSS_Filename>
 							<omitvalue>0.0</omitvalue>
 						</DataPath>
@@ -1462,8 +1462,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1477,8 +1477,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Type>PER-AVER</Type>
 							<Parameter>flow</Parameter>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>1</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1542,8 +1542,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Parameter>flow</Parameter>
 							<Interval>1HOUR</Interval>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1584,8 +1584,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Type>PER-AVER</Type>
 							<Interval>1HOUR</Interval>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</Datapath>
 						<Datapath>
@@ -1627,8 +1627,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Type>PER-AVER</Type>
 							<Interval>1HOUR</Interval>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1660,8 +1660,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1693,8 +1693,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1726,8 +1726,8 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<Interval>1HOUR</Interval>
 							<Type>PER-AVER</Type>
 							<!--<DSS_Path>/USBR/SPRING_CREEK_SPC/FLOW//1HOUR/USBR_BLESSED//FLOW//1HOUR/USBR_BLESSED/</DSS_Path>-->
-							<DSS_Path>/WHISKEYTOWN/WHI_GENERATION RELEASE/FLOW//1HOUR/GRABDATA2/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>
+							<DSS_Path>/Sac.-Whiskeytown Lake/WHI-Generation Release/Flow/*/1Hour/233.14.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
