@@ -27,6 +27,7 @@
 							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -74,6 +75,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 						<line>
@@ -82,6 +84,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -100,10 +103,13 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Shasta Lake Outflow Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Shasta Lake Outflow Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
+ --><!-- 					If you put in an xlim min and max, then you can uncomment the description below and add in the dates.  It will override the above description.  
+					Be sure to comment it back out when you are done and remove the dates in the xlims . -->
+					<!-- <description>Shasta Lake Outflow Iteration Statistical Summary (dd Mon) - (dd Mon) %%year%% (%%units%%)</description> -->
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -141,6 +147,7 @@
 							<DSS_Path>//Keswick Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -188,6 +195,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Keswick Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -196,10 +204,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Keswick Dam Outflow Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Keswick Dam Outflow Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -237,6 +245,7 @@
 							<DSS_Path>//SACRAMENTO R + CLEAR CR/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -284,6 +293,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//SACRAMENTO R + CLEAR CR/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -292,10 +302,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Clear Creek to Sacramento River Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Clear Creek to Sacramento River Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -333,6 +343,7 @@
 							<DSS_Path>//Lewiston Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -380,6 +391,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Lewiston Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -388,10 +400,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Lewiston Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Lewiston Dam Outflow Water Temperature Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -429,6 +441,7 @@
 							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -476,6 +489,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Trinity Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -484,10 +498,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Trinity Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Trinity Dam Outflow Water Temperature Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -525,6 +539,7 @@
 							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -572,6 +587,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Whiskeytown Dam/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -580,10 +596,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Whiskeytown Dam Outflow Water Temperature Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Whiskeytown Dam Outflow Water Temperature Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>

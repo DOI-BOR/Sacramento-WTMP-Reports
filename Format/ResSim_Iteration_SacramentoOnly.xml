@@ -24,6 +24,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//SHASTA OUT/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<line>
 							<flag>Keswick</flag>
@@ -31,6 +32,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Keswick Dam/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<line>
 							<flag>CCR</flag>
@@ -38,6 +40,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Sacramento R + Clear CR/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 					</lines>
 				</Object>
@@ -45,10 +48,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -135,6 +138,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//SHASTA OUT/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<line>
 							<flag>Keswick</flag>
@@ -142,6 +146,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Keswick Dam/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<line>
 							<flag>CCR</flag>
@@ -149,6 +154,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//Sacramento R + Clear CR/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 					</lines>
 				</Object>
@@ -156,10 +162,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 Jul %%year%%</min>
-						<max>31 Oct %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -232,9 +238,7 @@
 						<header>CCR (%%units%%)</header>
 					</headers>
 				</Object>
-
 			</Section>
-
 		</Sections>
 	</Chapter>
 </Chapters>

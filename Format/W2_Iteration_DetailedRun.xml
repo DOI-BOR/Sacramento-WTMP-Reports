@@ -20,6 +20,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:QWO_77.OPT/SEG 77 WITHDRAWAL/FLOW-QWD//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<!-- <line> -->
 							<!-- <flag>Keswick</flag> -->
@@ -41,10 +42,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
@@ -276,6 +277,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 						</line>
 						<!-- <line> -->
 							<!-- <flag>Keswick</flag> -->
@@ -297,10 +299,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>

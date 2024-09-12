@@ -27,6 +27,7 @@
 							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<envelopes>
 								<envelope>
 									<percent>100</percent>
@@ -74,6 +75,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 						<line>
@@ -82,6 +84,7 @@
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>//SHASTA OUT/TEMP-WATER TEMPERATURE//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
+							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
 						</line>
 					</lines>
@@ -100,10 +103,10 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Iteration</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Shasta Lake Outflow Iteration Statistical Summary May-Sep %%year%% (%%units%%)</description>
+					<description>Shasta Lake Outflow Iteration Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
-						<min>01 May %%year%%</min>
-						<max>01 Sep %%year%%</max>
+						<min></min>
+						<max></max>
 					</xlims>
 					<Datapaths>
 						<Datapath>
