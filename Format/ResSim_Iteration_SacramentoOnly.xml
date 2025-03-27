@@ -5,7 +5,7 @@
 		<memberiteration>true</memberiteration>
 		<Sections>
 			<Section>
-				<header>Iteration %%member%%</header>
+				<header>Outflow Iteration %%member%%</header>
 				<Object>
 					<type>forecasttable</type>
 					<Description>Iteration %%member%% run information</Description>
@@ -48,7 +48,7 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
+					<description>Sacramento Modeled Outflow Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
 						<min></min>
 						<max></max>
@@ -88,7 +88,7 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Month</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
+					<description>Sacramento Modeled Outflow Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
 					<Datapaths>
 						<Datapath>
 							<flag>Shasta</flag>
@@ -124,6 +124,9 @@
 						<header>Sac at Clear Cr (%%units%%)</header>
 					</headers>
 				</Object>
+			</Section>
+			<Section>
+				<header>Outflow Water Temperature Iteration %%member%%</header>
 				<Object>
 					<type>timeseriesplot</type>
 					<title>Sacramento Modeled Outflow Water Temperature: Iteration %%member%%</title>
@@ -162,7 +165,7 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Location</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
+					<description>Sacramento Modeled Outflow Water Temperature Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
 					<xlims>
 						<min></min>
 						<max></max>
@@ -202,7 +205,7 @@
 					<type>ErrorStatisticsTable</type>
 					<primarykeyheader>Month</primarykeyheader>
 					<unitsystem>english</unitsystem>
-					<description>Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
+					<description>Sacramento Modeled Outflow Water Temperature Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
 					<Datapaths>
 						<Datapath>
 							<flag>Shasta</flag>

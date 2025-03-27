@@ -1,3 +1,9 @@
+<Chapters>
+	<Chapter>
+		<Name>Iterations</Name>
+		<debug>true</debug>
+		<memberiteration>true</memberiteration>
+			<Sections>
 			<Section>
 				<Header>Shasta Lake Outflow Temperature, Flow, Elevation, and Gates</Header>
 
@@ -671,3 +677,241 @@ TCDLupp = Temperature Control Device - Lower, Top Elevation
 TCDLlow = Temperature Control Device - Lower, Bottom Elevation</text>
 				</Object>				
 			</Section>
+			<Section>
+				<header>Iteration %%member%%</header>
+				<Object>
+					<type>forecasttable</type>
+					<Description>Iteration %%member%% run information</Description>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Sacramento Modeled Outflow: Iteration %%member%%</title>
+					<Description>Sacramento Modeled Outflow %%year%% Iteration %%member%%</Description>
+					<ylabel>Flow (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>Shasta</flag>
+							<label>Shasta</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+						<line>
+							<flag>Keswick</flag>
+							<label>Keswick</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+						<line>
+							<flag>CCR</flag>
+							<label>Sac at Clear Cr</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Sacramento R + Clear CR/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Location</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
+					<xlims>
+						<min></min>
+						<max></max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Shasta</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Shasta out/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>Keswick</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>CCR</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>Shasta|%%maximum.Shasta%%|%%mean.Shasta%%|%%minimum.Shasta%%</row>
+						<row>Keswick|%%maximum.Keswick%%|%%mean.Keswick%%|%%minimum.Keswick%%</row>
+						<row>CCR|%%maximum.CCR%%|%%mean.CCR%%|%%minimum.CCR%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Month</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
+					<Datapaths>
+						<Datapath>
+							<flag>Shasta</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Shasta out/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>Keswick</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>CCR</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/Flow//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>Apr|%%MEAN.Shasta.MONTH=Apr%%|%%MEAN.Keswick.MONTH=Apr%%|%%MEAN.CCR.MONTH=Apr%%</row>
+						<row>May|%%MEAN.Shasta.MONTH=MAY%%|%%MEAN.Keswick.MONTH=MAY%%|%%MEAN.CCR.MONTH=MAY%%</row>
+						<row>Jun|%%MEAN.Shasta.MONTH=Jun%%|%%MEAN.Keswick.MONTH=Jun%%|%%MEAN.CCR.MONTH=Jun%%</row>
+						<row>Jul|%%MEAN.Shasta.MONTH=Jul%%|%%MEAN.Keswick.MONTH=Jul%%|%%MEAN.CCR.MONTH=Jul%%</row>
+						<row>Aug|%%MEAN.Shasta.MONTH=Aug%%|%%MEAN.Keswick.MONTH=Aug%%|%%MEAN.CCR.MONTH=Aug%%</row>
+						<row>Sep|%%MEAN.Shasta.MONTH=Sep%%|%%MEAN.Keswick.MONTH=Sep%%|%%MEAN.CCR.MONTH=Sep%%</row>
+						<row>Oct|%%MEAN.Shasta.MONTH=Oct%%|%%MEAN.Keswick.MONTH=Oct%%|%%MEAN.CCR.MONTH=Oct%%</row>
+					</rows>
+					<headers>
+						<header>Shasta (%%units%%)</header>
+						<header>Keswick (%%units%%)</header>
+						<header>Sac at Clear Cr (%%units%%)</header>
+					</headers>
+				</Object>
+				<Object>
+					<type>timeseriesplot</type>
+					<title>Sacramento Modeled Outflow Water Temperature: Iteration %%member%%</title>
+					<Description>Sacramento Modeled Outflow Water Temperature %%year%% Iteration %%member%%</Description>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
+					<unitsystem>english</unitsystem>
+					<legend_outside>True</legend_outside>
+					<lines>
+						<line>
+							<flag>Shasta</flag>
+							<label>Shasta</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SHASTA OUT/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+						<line>
+							<flag>Keswick</flag>
+							<label>Keswick</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+						<line>
+							<flag>CCR</flag>
+							<label>Sac at Clear Cr</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Sacramento R + Clear CR/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
+					</lines>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Location</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Iteration %%member%% Statistical Summary %%startmonth%% - %%endmonth%% %%year%% (%%units%%)</description>
+					<xlims>
+						<min></min>
+						<max></max>
+					</xlims>
+					<Datapaths>
+						<Datapath>
+							<flag>Shasta</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Shasta out/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>Keswick</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>CCR</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>Shasta|%%maximum.Shasta%%|%%mean.Shasta%%|%%minimum.Shasta%%</row>
+						<row>Keswick|%%maximum.Keswick%%|%%mean.Keswick%%|%%minimum.Keswick%%</row>
+						<row>CCR|%%maximum.CCR%%|%%mean.CCR%%|%%minimum.CCR%%</row>
+					</rows>
+					<headers>
+						<header>Maximum</header>
+						<header>Mean</header>
+						<header>Minimum</header>
+					</headers>
+				</Object>
+				<Object>
+					<type>ErrorStatisticsTable</type>
+					<primarykeyheader>Month</primarykeyheader>
+					<unitsystem>english</unitsystem>
+					<description>Iteration %%member%% Monthly Average %%year%% (%%units%%)</description>
+					<Datapaths>
+						<Datapath>
+							<flag>Shasta</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Shasta out/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>Keswick</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//Keswick Dam/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>CCR</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>//SACRAMENTO R + CLEAR CR/Temp-Water Temperature//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+					</Datapaths>
+					<rows>
+						<row>Apr|%%MEAN.Shasta.MONTH=Apr%%|%%MEAN.Keswick.MONTH=Apr%%|%%MEAN.CCR.MONTH=Apr%%</row>
+						<row>May|%%MEAN.Shasta.MONTH=MAY%%|%%MEAN.Keswick.MONTH=MAY%%|%%MEAN.CCR.MONTH=MAY%%</row>
+						<row>Jun|%%MEAN.Shasta.MONTH=Jun%%|%%MEAN.Keswick.MONTH=Jun%%|%%MEAN.CCR.MONTH=Jun%%</row>
+						<row>Jul|%%MEAN.Shasta.MONTH=Jul%%|%%MEAN.Keswick.MONTH=Jul%%|%%MEAN.CCR.MONTH=Jul%%</row>
+						<row>Aug|%%MEAN.Shasta.MONTH=Aug%%|%%MEAN.Keswick.MONTH=Aug%%|%%MEAN.CCR.MONTH=Aug%%</row>
+						<row>Sep|%%MEAN.Shasta.MONTH=Sep%%|%%MEAN.Keswick.MONTH=Sep%%|%%MEAN.CCR.MONTH=Sep%%</row>
+						<row>Oct|%%MEAN.Shasta.MONTH=Oct%%|%%MEAN.Keswick.MONTH=Oct%%|%%MEAN.CCR.MONTH=Oct%%</row>
+					</rows>
+					<headers>
+						<header>Shasta (%%units%%)</header>
+						<header>Keswick (%%units%%)</header>
+						<header>CCR (%%units%%)</header>
+					</headers>
+				</Object>
+			</Section>
+		</Sections>
+	</Chapter>
+</Chapters>

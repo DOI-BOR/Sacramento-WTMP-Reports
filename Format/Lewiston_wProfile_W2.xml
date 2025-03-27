@@ -790,7 +790,7 @@ Each profile includes the date, observed (light blue) and simulated (red-dashed)
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>2</lineWidth>
 							<zorder>5</zorder>
-							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles.txt</FileName>
+							<FileName>%%observedDir%%\lewiston_upper_curtain_profiles_F.txt</FileName>
 							<units>F</units>						<!--Text file input, so specify units-->
 							<wse>
 								<DSS_Filename>%%observedDir%%/WTMP_SacTrn_Historical.dss</DSS_Filename>

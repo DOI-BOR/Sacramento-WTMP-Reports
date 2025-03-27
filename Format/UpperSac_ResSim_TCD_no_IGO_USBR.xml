@@ -1168,7 +1168,7 @@
 
 
 			<Section>
-				<Header>Sacramento River at Bend Bridge flow</Header>
+				<Header>Sacramento River at Bend Bridge Flow</Header>
 				<Object>
 					<Type>textbox</Type>
 					<Text>River flow figures compare simulated and observed flow time series from January through December to aid calibration.  Time (date) is represented on the x-axis and flow (cfs) is represented on the y-axis. Two lines are included in the figures: observed (dark blue) and simulated (dark red dashed) daily average flow. In certain instances, time series for multiple years are shown to indicate comparison of observed data and model simulations for longer time periods.</Text>
@@ -1202,8 +1202,10 @@
 						<line>
 							<label>Observed</label>
 							<Flag>Observed</Flag>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<!--<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>-->
+							<Interval>1DAY</Interval>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<lineColor>#5b9bd5</lineColor>
 							<lineWidth>2</lineWidth>
 							<lineStylePattern>solid</lineStylePattern>
@@ -1236,8 +1238,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1289,8 +1291,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1322,8 +1324,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1354,8 +1356,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1386,8 +1388,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
@@ -1418,8 +1420,8 @@
 							<Parameter>flow</Parameter>
 							<Interval>1DAY</Interval>
 							<Type>PER-AVER</Type>
-							<DSS_Path>/SACRAMENTO R/BEND BR BALANCE FLOW/FLOW//1DAY/ResSim_PreProcess/</DSS_Path>
-							<DSS_Filename>%%observedDir%%/DMS_SacTrn_ResSim_Pre-Process.dss</DSS_Filename>
+							<DSS_Path>/MR Sac.-Sac River/11377100 Sacramento R at Bend Bridge-15min Flow/Flow//15Minute/237.64.125.1.1/</DSS_Path>
+							<DSS_Filename>%%observedDir%%/DMS_SacTrnHydroTS.dss</DSS_Filename>
 							<omitvalue>-901.0</omitvalue>
 						</DataPath>
 					</DataPaths>
