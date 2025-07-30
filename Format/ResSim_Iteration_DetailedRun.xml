@@ -411,7 +411,7 @@
 					<type>timeseriesplot</type>
 					<title>Trinity Modeled Outflow Water Temperature: Iteration %%member%%</title>
 					<Description>Trinity Modeled Outflow Water Temperature %%year%% Iteration %%member%%</Description>
-					<ylabel>Flow (%%units%%)</ylabel>
+					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
 					<legend_outside>True</legend_outside>
 					<lines>
