@@ -291,7 +291,7 @@ A table of legend entries and abbreviations follows the figure describing the li
 					<Description>Shasta Lake outflow temperature, flows, elevation, and gates, %%year%%. ResSim.</Description>
 					<unitsystem>english</unitsystem>
 					<sharex>True</sharex>
-					<legend_outside>true</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<legendsize>9</legendsize>
 					<splitbyyear>true</splitbyyear>
 					<axs>

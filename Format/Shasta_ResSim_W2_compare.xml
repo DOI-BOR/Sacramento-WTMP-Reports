@@ -557,7 +557,7 @@
 							<yticksize>8</yticksize>
 							<gatespacing>5</gatespacing>
 							<weight>.75</weight>
-							<legend_outside>true</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<numlegendcolumns>2</numlegendcolumns>
 							<legendsize>9</legendsize>
 							<operationlines>
@@ -735,7 +735,7 @@
 							<weight>0.5</weight>
 							<unitsystem>english</unitsystem>
 							<xlabel>Date</xlabel>
-							<legend_outside>True</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<legendsize>9</legendsize>
 							<ylims>
 								<max>1100</max>
