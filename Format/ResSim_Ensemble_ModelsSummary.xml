@@ -18,7 +18,7 @@
 					<Description>Shasta Lake Outflow Temperature variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -66,7 +66,7 @@
 					<title>Shasta Lake Outflow Forecast Runs</title>
 					<Description>Shasta Lake Outflow Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>
@@ -138,7 +138,7 @@
 					<Description>Keswick Dam Outflow Temperature variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -186,7 +186,7 @@
 					<title>Keswick Dam Outflow Temperature Forecast Runs</title>
 					<Description>Keswick Dam Outflow Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>
@@ -236,7 +236,7 @@
 					<Description>Clear Creek to Sacramento River Temperature variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -284,7 +284,7 @@
 					<title>Clear Creek to Sacramento River Temperature Forecast Runs</title>
 					<Description>Clear Creek to Sacramento River Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>
@@ -334,7 +334,7 @@
 					<Description>Lewiston Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -382,7 +382,7 @@
 					<title>Lewiston Dam Outflow Temperature Forecast Runs</title>
 					<Description>Lewiston Dam Outflow Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>
@@ -432,7 +432,7 @@
 					<Description>Trinity Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -480,7 +480,7 @@
 					<title>Trinity Dam Outflow Temperature Forecast Runs</title>
 					<Description>Trinity Dam Outflow Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>
@@ -530,7 +530,7 @@
 					<Description>Whiskeytown Dam Outflow Water Temperature  variable input with percentile envelopes computed</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>computed</flag>
@@ -578,7 +578,7 @@
 					<title>Whiskeytown Dam Outflow Temperature Forecast Runs</title>
 					<Description>Whiskeytown Dam Outflow Temperature variable input</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<unitsystem>english</unitsystem>
 					<lines>
 						<line>

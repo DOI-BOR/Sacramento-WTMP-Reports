@@ -473,7 +473,7 @@ TCDLlow = Temperature Control Device - Lower, Bottom Elevation</Text>
 							<yticks>
 								<spacing>10</spacing>
 							</yticks>
-							<legend_outside>true</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<Lines>
 								<Line>
 									<label>Observed</label>
@@ -546,7 +546,7 @@ TCDLlow = Temperature Control Device - Lower, Bottom Elevation</Text>
 								<spacing>2000</spacing>
 							</yticks2>
 							<twinx>true</twinx>
-							<legend_outside>True</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<Lines>
 								<Line>
 									<label>Spill</label>
@@ -717,7 +717,7 @@ TCDLlow = Temperature Control Device - Lower, Bottom Elevation</Text>
 							<yticksize>8</yticksize>
 							<gatespacing>5</gatespacing>
 							<weight>.75</weight>
-							<legend_outside>true</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<numlegendcolumns>2</numlegendcolumns>
 							<operationlines>
 								<linecolor>grey</linecolor>
@@ -894,7 +894,7 @@ TCDLlow = Temperature Control Device - Lower, Bottom Elevation</Text>
 							<weight>0.5</weight>
 							<unitsystem>english</unitsystem>
 							<xlabel>Date</xlabel>
-							<legend_outside>true</legend_outside>
+							<legend_outside>Right</legend_outside>
 							<ylims>
 								<min>700</min>
 								<max>1100</max>
