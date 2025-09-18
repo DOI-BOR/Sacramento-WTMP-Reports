@@ -1,0 +1,33 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<Objects>
+	<Object>
+		<Type>SingleStatisticTable</Type>
+		<numberformats>
+			<numberformat>
+				<min>100</min>
+				<decimalplaces>0</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<min>10</min>
+				<decimalplaces>1</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<max>10</max>
+				<decimalplaces>2</decimalplaces>
+			</numberformat>
+		</numberformats>		
+		<thresholds>
+			<threshold>
+				<statistic>meanbias</statistic>
+				<value>150</value>
+				<colorwhen>over</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>meanbias</statistic>
+				<value>-150</value>
+				<colorwhen>under</colorwhen>
+			</threshold>
+		</thresholds>
+	</Object>
+</Objects>
+

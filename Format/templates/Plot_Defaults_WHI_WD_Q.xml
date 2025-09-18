@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Whiskeytown Lake, Whiskeytown Lake Dam Outflow Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>0</min>
+			<max>2000</max>
+		</ylims>
+		<yticks>
+			<spacing>500</spacing>
+		</yticks>
+	</Object>
+</Objects>

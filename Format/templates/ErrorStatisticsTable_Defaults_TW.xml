@@ -1,0 +1,54 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<Objects>
+	<Object>
+		<Type>ErrorStatisticsTable</Type>
+		<numberformats>
+			<numberformat>
+				<min>100</min>
+				<decimalplaces>0</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<min>10</min>
+				<decimalplaces>1</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<max>10</max>
+				<decimalplaces>2</decimalplaces>
+			</numberformat>
+		</numberformats>		
+		<thresholds>
+			<threshold>
+				<statistic>meanbias</statistic>
+				<value>1.35</value>
+				<colorwhen>over</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>meanbias</statistic>
+				<value>-1.35</value>
+				<colorwhen>under</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>MAE</statistic>
+				<value>1.80</value>
+				<colorwhen>over</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>RMSE</statistic>
+				<value>2.70</value>
+				<colorwhen>over</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>nse</statistic>
+				<value>0.65</value>
+				<colorwhen>under</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>nse</statistic>
+				<value>0.00</value>
+				<when>under</when>
+				<replacement>%%lt%%0</replacement>
+			</threshold>
+		</thresholds>
+	</Object>
+</Objects>
+

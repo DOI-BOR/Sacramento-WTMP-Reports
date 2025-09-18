@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Shasta Lake, Flow Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>0</min>
+			<max>90000</max>
+		</ylims>
+		<yticks>
+			<spacing>10000</spacing>
+		</yticks>
+	</Object>
+</Objects>
