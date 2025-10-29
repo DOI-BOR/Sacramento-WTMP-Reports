@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Trinity Lake, Elevation Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>2100</min>
+			<max>2400</max>
+		</ylims>
+		<yticks>
+			<spacing>100</spacing>
+		</yticks>
+	</Object>
+</Objects>

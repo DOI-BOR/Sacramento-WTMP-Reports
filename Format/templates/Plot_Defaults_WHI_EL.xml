@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Whiskeytown Lake, Elevation Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>1150</min>
+			<max>1250</max>
+		</ylims>
+		<yticks>
+			<spacing>25</spacing>
+		</yticks>
+	</Object>
+</Objects>

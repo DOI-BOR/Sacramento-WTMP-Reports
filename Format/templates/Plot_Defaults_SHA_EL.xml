@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Shasta Lake, Elevation Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>800</min>
+			<max>1100</max>
+		</ylims>
+		<yticks>
+			<spacing>100</spacing>
+		</yticks>
+	</Object>
+</Objects>

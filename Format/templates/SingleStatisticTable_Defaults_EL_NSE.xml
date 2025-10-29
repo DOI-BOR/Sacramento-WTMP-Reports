@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Objects>
+	<Object>
+		<Type>SingleStatisticTable</Type>		
+		<numberformats>
+			<numberformat>
+				<min>100</min>
+				<decimalplaces>0</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<min>10</min>
+				<decimalplaces>1</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<max>10</max>
+				<decimalplaces>2</decimalplaces>
+			</numberformat>
+		</numberformats>		
+		<thresholds>
+			<threshold>
+				<statistic>nse</statistic>
+				<value>0.65</value>
+				<colorwhen>under</colorwhen>
+			</threshold>
+			<threshold>
+				<statistic>nse</statistic>
+				<value>0.00</value>
+				<when>under</when>
+				<replacement>%%lt%%0</replacement>
+			</threshold>
+		</thresholds>
+	</Object>
+</Objects>
+

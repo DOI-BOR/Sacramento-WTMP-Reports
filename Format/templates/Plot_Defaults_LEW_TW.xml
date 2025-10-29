@@ -1,0 +1,31 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Whiskeytown Lake, Temperature Plots-->
+<Objects>
+	<Object>
+		<Type>ProfilePlot</Type>
+		<XLims>
+			<min>30</min>
+			<max>80</max>
+		</XLims>
+		<ylims>
+			<min>1830</min>
+			<max>1910</max>			
+		</ylims>
+		<xticks>
+			<spacing>10</spacing>
+		</xticks>	
+		<yticks>
+			<spacing>20</spacing>
+		</yticks>		
+	</Object>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>35</min>
+			<max>65</max>
+		</ylims>
+		<yticks>
+			<spacing>5</spacing>
+		</yticks>
+	</Object>
+</Objects>

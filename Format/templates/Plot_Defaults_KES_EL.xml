@@ -1,0 +1,11 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--For Keswick Reservoir, Elevation Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>550</min>
+			<max>600</max>
+		</ylims>
+	</Object>
+</Objects>

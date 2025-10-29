@@ -1,0 +1,27 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Monthly Stats Table: Elevation-->
+<!--Elevation is different because the elevations are normally in the 1,000 ft range, so need a decimal there-->
+<Objects>
+	<Object>
+		<Type>MonthlyStatisticsTable</Type>
+		<numberformats>
+			<numberformat>
+				<min>100</min>
+				<decimalplaces>1</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<min>10</min>
+				<decimalplaces>1</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<max>10</max>
+				<decimalplaces>2</decimalplaces>
+			</numberformat>
+			<numberformat>
+				<stat>count</stat>
+				<decimalplaces>0</decimalplaces>
+			</numberformat>
+		</numberformats>		
+	</Object>
+</Objects>
+

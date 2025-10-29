@@ -3,6 +3,7 @@
 !Graphics_Defaults.xml
 !Graphics_Defaults_contour.xml
 !Format/*.xml
+!Format/*/*.xml
 !Datasources/USBRAutomatedReportDataAdapter.xml
 **/*.bak
 **/*.bak.*

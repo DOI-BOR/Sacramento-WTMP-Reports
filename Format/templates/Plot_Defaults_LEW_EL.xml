@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Lewiston Lake, Elevation Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>1890</min>
+			<max>1910</max>
+		</ylims>
+		<yticks>
+			<spacing>5</spacing>
+		</yticks>
+	</Object>
+</Objects>

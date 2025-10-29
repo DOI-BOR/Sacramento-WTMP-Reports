@@ -1,0 +1,14 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--Trinity River, Water Temperature Plots-->
+<Objects>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>35</min>
+			<max>75</max>
+		</ylims>
+		<yticks>
+			<spacing>10</spacing>
+		</yticks>
+	</Object>
+</Objects>

@@ -1,0 +1,25 @@
+<!--xml version="1.0" encoding="UTF-8"-->
+<!--For Keswick Reservoir-->
+<Objects>
+	<Object>
+		<Type>ProfilePlot</Type>
+		<XLims>
+			<min>45</min>
+			<max>60</max>
+		</XLims>
+		<ylims>
+			<min>500</min>			<!--70 ft is max profile depth-->
+			<max>600</max>			<!--590 in data-->
+		</ylims>
+		<xticks>
+			<spacing>5</spacing>
+		</xticks>
+	</Object>
+	<Object>
+		<Type>TimeSeriesPlot</Type>
+		<ylims>
+			<min>30</min>
+			<max>100</max>
+		</ylims>
+	</Object>
+</Objects>
