@@ -16,7 +16,7 @@
 					<Description>Sacramento Modeled Outflow %%year%% Iteration %%member%%</Description>
 					<ylabel>Flow (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>Shasta</flag>
@@ -133,7 +133,7 @@
 					<Description>Sacramento Modeled Outflow Water Temperature %%year%% Iteration %%member%%</Description>
 					<ylabel>Water Temperature (%%units%%)</ylabel>
 					<unitsystem>english</unitsystem>
-					<legend_outside>True</legend_outside>
+					<legend_outside>Right</legend_outside>
 					<lines>
 						<line>
 							<flag>Shasta</flag>
