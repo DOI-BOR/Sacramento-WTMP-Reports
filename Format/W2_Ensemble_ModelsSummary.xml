@@ -24,7 +24,7 @@
 							<flag>computed</flag>
 							<label>Computed</label>
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
-							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<DSS_Path>/W2:TWO_77.CSV/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<linecolor>darkgreen</linecolor>
 							<interval>1DAY</interval>
 							<type>PER-AVER</type>
@@ -73,7 +73,7 @@
 							<flag>computed</flag>
 							<label>%%member%%</label>
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
-							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<DSS_Path>/W2:TWO_77.CSV/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
 							<type>PER-AVER</type>
 							<coloreach>true</coloreach>
@@ -113,7 +113,7 @@
 							<flag>Computed</flag>
 							<label>Computed</label>
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
-							<DSS_Path>/W2:TWO_77.OPT/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<DSS_Path>/W2:TWO_77.CSV/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
 						</Datapath>
 					</Datapaths>
