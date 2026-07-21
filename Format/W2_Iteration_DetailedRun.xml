@@ -279,6 +279,14 @@
 							<interval>1DAY</interval>
 							<type>PER-AVER</type>
 						</line>
+						<line>
+							<flag>ReleaseTarget</flag>
+							<label>Release Target</label>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET-W2-UPSTREAM//1DAY/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+							<type>PER-AVER</type>
+						</line>
 						<!-- <line> -->
 							<!-- <flag>Keswick</flag> -->
 							<!-- <label>Keswick</label> -->
@@ -311,6 +319,12 @@
 							<DSS_Path>/W2:TWO_77.CSV/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
 						</Datapath>
+						<Datapath>
+							<flag>ReleaseTarget</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET-W2-UPSTREAM//1DAY/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
 						<!-- <Datapath> -->
 							<!-- <flag>Keswick</flag> -->
 							<!-- <DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename> -->
@@ -326,6 +340,8 @@
 					</Datapaths>
 					<rows>
 						<row>Shasta|%%maximum.Shasta%%|%%mean.Shasta%%|%%minimum.Shasta%%</row>
+						<row>Release Target|%%maximum.ReleaseTarget%%|%%mean.ReleaseTarget%%|%%minimum.ReleaseTarget%%</row>
+
 						<!-- <row>Keswick|%%maximum.Keswick%%|%%mean.Keswick%%|%%minimum.Keswick%%</row> -->
 						<!-- <row>CCR|%%maximum.CCR%%|%%mean.CCR%%|%%minimum.CCR%%</row> -->
 					</rows>
@@ -345,6 +361,12 @@
 							<flag>Shasta</flag>
 							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
 							<DSS_Path>/W2:TWO_77.CSV/SEG 77 WITHDRAWAL/TEMP-TWO//1HOUR/*|%%FPART%%/</DSS_Path>
+							<interval>1DAY</interval>
+						</Datapath>
+						<Datapath>
+							<flag>ReleaseTarget</flag>
+							<DSS_Filename>%%SimulationDir%%\forecastResults.dss</DSS_Filename>
+							<DSS_Path>/USBR/SHASTA/TEMP-WATER-TARGET-W2-UPSTREAM//1DAY/*|%%FPART%%/</DSS_Path>
 							<interval>1DAY</interval>
 						</Datapath>
 						<!-- <Datapath> -->
@@ -370,16 +392,17 @@
 						<!-- <row>Oct|%%MEAN.Shasta.MONTH=Oct%%|%%MEAN.Keswick.MONTH=Oct%%|%%MEAN.CCR.MONTH=Oct%%</row> -->
 					<!-- </rows> -->
 					<rows>
-						<row>Apr|%%MEAN.Shasta.MONTH=Apr%%</row>
-						<row>May|%%MEAN.Shasta.MONTH=MAY%%</row>
-						<row>Jun|%%MEAN.Shasta.MONTH=Jun%%</row>
-						<row>Jul|%%MEAN.Shasta.MONTH=Jul%%</row>
-						<row>Aug|%%MEAN.Shasta.MONTH=Aug%%</row>
-						<row>Sep|%%MEAN.Shasta.MONTH=Sep%%</row>
-						<row>Oct|%%MEAN.Shasta.MONTH=Oct%%</row>
+						<row>Apr|%%MEAN.Shasta.MONTH=Apr%%|%%MEAN.ReleaseTarget.MONTH=Apr%%</row>
+						<row>May|%%MEAN.Shasta.MONTH=MAY%%|%%MEAN.ReleaseTarget.MONTH=May%%</row>
+						<row>Jun|%%MEAN.Shasta.MONTH=Jun%%|%%MEAN.ReleaseTarget.MONTH=Jun%%</row>
+						<row>Jul|%%MEAN.Shasta.MONTH=Jul%%|%%MEAN.ReleaseTarget.MONTH=Jul%%</row>
+						<row>Aug|%%MEAN.Shasta.MONTH=Aug%%|%%MEAN.ReleaseTarget.MONTH=Aug%%</row>
+						<row>Sep|%%MEAN.Shasta.MONTH=Sep%%|%%MEAN.ReleaseTarget.MONTH=Sep%%</row>
+						<row>Oct|%%MEAN.Shasta.MONTH=Oct%%|%%MEAN.ReleaseTarget.MONTH=Oct%%</row>
 					</rows>
 					<headers>
 						<header>Shasta (%%units%%)</header>
+						<header>Release Target (%%units%%)</header>
 						<!-- <header>Keswick (%%units%%)</header> -->
 						<!-- <header>CCR (%%units%%)</header> -->
 					</headers>
