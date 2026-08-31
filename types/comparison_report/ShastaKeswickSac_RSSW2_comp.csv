@@ -1,5 +1,5 @@
-ressim|cequalw2, Format/Shasta_ResSim_W2_compare_new.XML,RSSacTrnPO,Shasta
-ressim|cequalw2, Format/Keswick_ResSim_W2_compare_new.XML,RSSacTrnPO,Keswick
-ressim|cequalw2, Format/Trinity_ResSim_W2_compare_new.XML,RSSacTrnPO,Trinity
-ressim, Format/uppersac_ressim_w2_compare.xml,,RSSacTrnPO,RSSacTrnRV
-ressim, Format/Trinity_River_ResSim_USBR.xml,,RSSacTrnPO,RSSacTrnRV
+ressim|cequalw2, Format/Shasta_ResSim_W2_compare_new.XML,SacTrnP,Shasta
+ressim|cequalw2, Format/Keswick_ResSim_W2_compare_new.XML,SacTrnP,Keswick
+ressim|cequalw2, Format/Trinity_ResSim_W2_compare_new.XML,SacTrnP,Trinity
+ressim, Format/uppersac_ressim_w2_compare.xml,,SacTrnP,SacTrnRvP
+ressim, Format/Trinity_River_ResSim_USBR.xml,,SacTrnP,SacTrnRvP
