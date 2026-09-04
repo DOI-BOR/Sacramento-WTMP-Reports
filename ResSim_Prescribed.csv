@@ -1,8 +1,8 @@
-ResSim, RSSacTrnPO, Format\ReportOverview.XML
-ResSim, RSSacTrnPO, Format\Shasta_ResSim_Penstock_DMS.XML
-ResSim, RSSacTrnPO, Format\Keswick_ResSim_USBR.XML
-ResSim, RSSacTrnPO, Format\TrinityRes_wProfile_ResSim.XML
-ResSim, RSSacTrnPO, Format\Lewiston_wProfile_ResSim.xml
-ResSim, RSSacTrnPO, Format\Whiskeytown_wProfile_ResSim_TCD.XML
-ResSim, RSSacTrnPO, Format\UpperSac_ResSim_TCD_no_IGO_USBR.XML
-ResSim, RSSacTrnPO, Format\Trinity_River_ResSim_USBR.xml
+ResSim, SacTrnP, Format\ReportOverview.XML
+ResSim, SacTrnP, Format\Shasta_ResSim_Penstock_DMS.XML
+ResSim, SacTrnP, Format\Keswick_ResSim_USBR.XML
+ResSim, SacTrnP, Format\TrinityRes_wProfile_ResSim.XML
+ResSim, SacTrnP, Format\Lewiston_wProfile_ResSim.xml
+ResSim, SacTrnP, Format\Whiskeytown_wProfile_ResSim_TCD.XML
+ResSim, SacTrnP, Format\UpperSac_ResSim_TCD_no_IGO_USBR.XML
+ResSim, SacTrnP, Format\Trinity_River_ResSim_USBR.xml
